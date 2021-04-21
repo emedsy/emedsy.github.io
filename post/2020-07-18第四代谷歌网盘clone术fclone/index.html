@@ -1,0 +1,1271 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.1.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Nelson Bighetti" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="drive转存技术从最初的rclone转存到目前到fclone进化了4代，本文简单介绍mark，备忘" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/" />
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.9a66e344a68eb664b392d406a3f80726.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/index.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_180x180_fill_lanczos_center_2.png" />
+
+  <link rel="canonical" href="/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Academic" />
+  <meta property="og:url" content="/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/" />
+  <meta property="og:title" content="第四代谷歌网盘Clone术：Fclone | Academic" />
+  <meta property="og:description" content="drive转存技术从最初的rclone转存到目前到fclone进化了4代，本文简单介绍mark，备忘" /><meta property="og:image" content="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png" />
+    <meta property="twitter:image" content="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2020-07-18T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2020-07-18T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/"
+  },
+  "headline": "第四代谷歌网盘Clone术：Fclone",
+  
+  "datePublished": "2020-07-18T00:00:00Z",
+  "dateModified": "2020-07-18T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "转自BlueSkyXN"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "drive转存技术从最初的rclone转存到目前到fclone进化了4代，本文简单介绍mark，备忘"
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>第四代谷歌网盘Clone术：Fclone | Academic</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="666dc504f1e0818e24193dda6a876de0" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.226a9011996d125bf3fe4a5f22353a49.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>第四代谷歌网盘Clone术：Fclone</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span >
+      转自BlueSkyXN</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 18, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/gdrive/">gdrive</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h1 id="第四代谷歌网盘clone术fclone">第四代谷歌网盘Clone术：Fclone</h1>
+<h2 id="简介">简介</h2>
+<p>Fclone是目前最新最强的Rclone衍生产品
+与rclone和gclone兼容
+同时与gclone相比,能有几十上百倍的转存速度
+常规转存速度也达50+files/s
+相当于装满一个团队盘(40W文件),单开的情况下,只需要135分钟左右
+如果将参数拉高，使用性能较好的机器，速度可达150F/s，此速度下一个盘还不要一个小时
+而且如果sa够多，还能无限拉升，不怕不够快，就怕你sa不够冲
+可以说是几十上百倍的提升,而且稳定性大幅提升,不会受到众多小文件影响
+而且还支持参数调整,可以充分利用高配主机的性能
+所有前代产品均通用,无须额外修改,安装新程序后换个命令就能用</p>
+<h3 id="rclone第一代的安装">Rclone（第一代）的安装</h3>
+<h1 id="heading"></h1>
+<p>官方教程：https://rclone.org/install/
+Linux一键脚本</p>
+<pre><code class="language-bash">curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<h3 id="autoclone-2nd-generation的安装并获取sa">Autoclone (2nd generation)的安装并获取sa</h3>
+<p>项目地址：</p>
+<pre><code class="language-bash">https://github.com/xyou365/AutoRclone
+</code></pre>
+<h3 id="安装方法">安装方法：</h3>
+<hr>
+<h4 id="step-1-copy-code-to-your-vps-or-local-machine">Step 1. Copy code to your VPS or local machine</h4>
+<p><strong>For Linux system</strong>: Install <a href="https://www.interserver.net/tips/kb/using-screen-to-attach-and-detach-console-sessions/" target="_blank" rel="noopener">screen</a>, <code>git</code> and <a href="https://rclone.org/downloads/#script-download-and-install" target="_blank" rel="noopener">latest rclone</a>. If in Debian/Ubuntu, directly use this command</p>
+<pre><code class="language-bash">sudo apt-get install screen git &amp;&amp; curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<pre><code class="language-bash">sudo git clone https://github.com/xyou365/AutoRclone &amp;&amp; cd AutoRclone &amp;&amp; sudo pip3 install -r requirements.txt
+</code></pre>
+<h4 id="step-2-generate-service-accountswhat-is-service-accounthttpscloudgooglecomiamdocsservice-accountshow-to-use-service-account-in-rclonehttpsrcloneorgdriveservice-account-support">Step 2. Generate service accounts <a href="https://cloud.google.com/iam/docs/service-accounts" target="_blank" rel="noopener">What is service account</a> <a href="https://rclone.org/drive/#service-account-support" target="_blank" rel="noopener">How to use service account in rclone</a></h4>
+<p>Enable the Drive API in <a href="https://developers.google.com/drive/api/v3/quickstart/python" target="_blank" rel="noopener">Python Quickstart</a> and save the file <code>credentials.json</code> into project directory</p>
+<p>&lsquo;&lsquo;Note: 1 service account can copy around 750gb a day, 1 project makes 100 service accounts so thats 75tb a day, for most users this should easily suffice. '&rsquo;</p>
+<pre><code class="language-bash">python3 gen_sa_accounts.py --quick-setup 1
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">python3 gen_sa_accounts.py --quick-setup 1 --new-only
+</code></pre>
+<p>note: 这将覆盖现存的一个项目</p>
+<h4 id="step-3-add-service-accounts-to-google-groups-optional-but-recommended-for-hassle-free-long-term-use">Step 3. Add service accounts to Google Groups (Optional but recommended for hassle free long term use)</h4>
+<p><a href="https://support.google.com/a/answer/7338880?hl=en" target="_blank" rel="noopener">Official limits to the members of Team Drive</a> (Limit for individuals and groups directly added as members: 600)</p>
+<p>对于 <strong>Gsuite Admin</strong> 管理员</p>
+<ol>
+<li>
+<p>Turn on the Directory API following <a href="https://developers.google.com/admin-sdk/directory/v1/quickstart/python" target="_blank" rel="noopener">official steps</a> (save the generated json file to folder <code>credentials</code>).</p>
+</li>
+<li>
+<p>Create group for your organization <a href="https://support.google.com/a/answer/33343?hl=en" target="_blank" rel="noopener">in the Admin console</a>. After create a group, you will have an address for <a href="mailto:example%60sa@yourdomain.com">example`sa@yourdomain.com</a>`.</p>
+</li>
+<li>
+<p>run</p>
+<pre><code class="language-bash">python3 add_to_google_group.py -g sa@yourdomain.com
+</code></pre>
+<hr>
+<h4 id="对于普通用户">对于普通用户</h4>
+</li>
+<li>
+<p>Create <a href="https://groups.google.com/" target="_blank" rel="noopener">Google Group</a> then add the service accounts as members by hand. Limit is 10 at a time, 100 a day but if you read our warning and notes above, you would have 1 project and hence easily in your range.</p>
+<h4 id="step-4-add-service-accounts-or-google-groups-into-team-drive">Step 4. Add service accounts or Google Groups into Team Drive</h4>
+<h4 id="step-5-start-your-task">Step 5. Start your task</h4>
+<pre><code class="language-bash">python3 rclone_sa_magic.py -s SourceID -d DestinationID -dp DestinationPathName -b 1 -e 600
+</code></pre>
+<p>Add <code>--disable_list_r</code> if <code>rclone</code> <a href="https://forum.rclone.org/t/rclone-cannot-see-all-files-folder-in-public-shared-folder/12351" target="_blank" rel="noopener">cannot read all contents of public shared folder</a></p>
+<p>rclone &ndash;config rclone.conf size &ndash;disable ListR src001:</p>
+</li>
+</ol>
+<h3 id="gclone第三代的安装和使用">Gclone(第三代)的安装和使用</h3>
+<h4 id="安装方法-1">安装方法</h4>
+<hr>
+<p>linux一键脚本：</p>
+<pre><code class="language-bash">bash &lt;(wget -qO- https://git.io/gclone.sh)
+</code></pre>
+<pre><code class="language-bash">gclone --version
+</code></pre>
+<pre><code class="language-bansh">[gc]
+type = drive
+scope = drive
+service_account_file = /root/AutoRclone/accounts/0079098d8d94d71d7a3042da3838a4d07346eb78.json
+service_account_file_path = /root/AutoRclone/accounts/
+root_folder_id = root
+</code></pre>
+<p>转存用法</p>
+<hr>
+<pre><code class="language-bash">gclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs
+</code></pre>
+<p>大小检查</p>
+<hr>
+<pre><code class="language-bash">gsize gc:{【目的盘】ID}
+</code></pre>
+<h3 id="fclone第四代的安装使用">fclone(第四代)的安装使用</h3>
+<p>项目地址：</p>
+<hr>
+<p><a href="https://github.com/mawaya/rclone">https://github.com/mawaya/rclone</a></p>
+<p>下载地址：</p>
+<hr>
+<p><a href="https://github.com/mawaya/rclone/releases">https://github.com/mawaya/rclone/releases</a></p>
+<p>安装使用方法：</p>
+<p>以0.3.1为例</p>
+<pre><code class="language-bash">wget https://github.com/mawaya/rclone/releases/tag/fclone-v0.3.1
+unzip fclone-v0.3.1.zip /usr/bin/fclone
+chmod +x /usr/bin/fclone
+</code></pre>
+<p><strong>使用方法</strong></p>
+<p>低配vps</p>
+<p><code>fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} —drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=128 --drive-pacer-min-sleep=1ms --check-first</code></p>
+<p>低配vps推荐2</p>
+<p><code>fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first</code></p>
+<p>通用</p>
+<p><code>fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=256 --transfers=256 --drive-pacer-min-sleep=1ms --check-first</code></p>
+<p><code>fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=256 --transfers=256 --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --check-first</code></p>
+<p>中高杜甫推荐</p>
+<p><code>fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=320 --transfers=320 --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --check-first</code></p>
+<p>参数说明：</p>
+<hr>
+<p>&ndash;drive-server-side-across-configs #服务端传递</p>
+<p>&ndash;stats=1s &ndash;stats-one-line -vP #日常参数</p>
+<p>&ndash;checkers=数字 #越大越快</p>
+<p>&ndash;transfers=数字 #越大越快</p>
+<p>&ndash;drive-pacer-min-sleep=数字ms #越小越快</p>
+<p>&ndash;drive-pacer-burst=数字 #越大越快</p>
+<p>&ndash;check-first #fmod必须参数</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/&amp;text=%e7%ac%ac%e5%9b%9b%e4%bb%a3%e8%b0%b7%e6%ad%8c%e7%bd%91%e7%9b%98Clone%e6%9c%af%ef%bc%9aFclone" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/&amp;t=%e7%ac%ac%e5%9b%9b%e4%bb%a3%e8%b0%b7%e6%ad%8c%e7%bd%91%e7%9b%98Clone%e6%9c%af%ef%bc%9aFclone" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=%e7%ac%ac%e5%9b%9b%e4%bb%a3%e8%b0%b7%e6%ad%8c%e7%bd%91%e7%9b%98Clone%e6%9c%af%ef%bc%9aFclone&amp;body=/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/&amp;title=%e7%ac%ac%e5%9b%9b%e4%bb%a3%e8%b0%b7%e6%ad%8c%e7%bd%91%e7%9b%98Clone%e6%9c%af%ef%bc%9aFclone" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=%e7%ac%ac%e5%9b%9b%e4%bb%a3%e8%b0%b7%e6%ad%8c%e7%bd%91%e7%9b%98Clone%e6%9c%af%ef%bc%9aFclone%20/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/&amp;title=%e7%ac%ac%e5%9b%9b%e4%bb%a3%e8%b0%b7%e6%ad%8c%e7%bd%91%e7%9b%98Clone%e6%9c%af%ef%bc%9aFclone" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.b61a8f62b6e5c0cd322c8158c5b5dfb6.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

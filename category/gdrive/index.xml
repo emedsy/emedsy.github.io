@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gdrive | Academic</title>
+    <link>/category/gdrive/</link>
+      <atom:link href="/category/gdrive/index.xml" rel="self" type="application/rss+xml" />
+    <description>gdrive</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>gdrive</title>
+      <link>/category/gdrive/</link>
+    </image>
+    
+    <item>
+      <title>第四代谷歌网盘Clone术：Fclone</title>
+      <link>/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/</guid>
+      <description>&lt;h1 id=&#34;第四代谷歌网盘clone术fclone&#34;&gt;第四代谷歌网盘Clone术：Fclone&lt;/h1&gt;
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;Fclone是目前最新最强的Rclone衍生产品
+与rclone和gclone兼容
+同时与gclone相比,能有几十上百倍的转存速度
+常规转存速度也达50+files/s
+相当于装满一个团队盘(40W文件),单开的情况下,只需要135分钟左右
+如果将参数拉高，使用性能较好的机器，速度可达150F/s，此速度下一个盘还不要一个小时
+而且如果sa够多，还能无限拉升，不怕不够快，就怕你sa不够冲
+可以说是几十上百倍的提升,而且稳定性大幅提升,不会受到众多小文件影响
+而且还支持参数调整,可以充分利用高配主机的性能
+所有前代产品均通用,无须额外修改,安装新程序后换个命令就能用&lt;/p&gt;
+&lt;h3 id=&#34;rclone第一代的安装&#34;&gt;Rclone（第一代）的安装&lt;/h3&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;p&gt;官方教程：https://rclone.org/install/
+Linux一键脚本&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;curl https://rclone.org/install.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;autoclone-2nd-generation的安装并获取sa&#34;&gt;Autoclone (2nd generation)的安装并获取sa&lt;/h3&gt;
+&lt;p&gt;项目地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;https://github.com/xyou365/AutoRclone
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;安装方法&#34;&gt;安装方法：&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;step-1-copy-code-to-your-vps-or-local-machine&#34;&gt;Step 1. Copy code to your VPS or local machine&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;For Linux system&lt;/strong&gt;: Install &lt;a href=&#34;https://www.interserver.net/tips/kb/using-screen-to-attach-and-detach-console-sessions/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;screen&lt;/a&gt;, &lt;code&gt;git&lt;/code&gt; and &lt;a href=&#34;https://rclone.org/downloads/#script-download-and-install&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;latest rclone&lt;/a&gt;. If in Debian/Ubuntu, directly use this command&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install screen git &amp;amp;&amp;amp; curl https://rclone.org/install.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo git clone https://github.com/xyou365/AutoRclone &amp;amp;&amp;amp; cd AutoRclone &amp;amp;&amp;amp; sudo pip3 install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;step-2-generate-service-accountswhat-is-service-accounthttpscloudgooglecomiamdocsservice-accountshow-to-use-service-account-in-rclonehttpsrcloneorgdriveservice-account-support&#34;&gt;Step 2. Generate service accounts &lt;a href=&#34;https://cloud.google.com/iam/docs/service-accounts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;What is service account&lt;/a&gt; &lt;a href=&#34;https://rclone.org/drive/#service-account-support&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to use service account in rclone&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Enable the Drive API in &lt;a href=&#34;https://developers.google.com/drive/api/v3/quickstart/python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Quickstart&lt;/a&gt; and save the file &lt;code&gt;credentials.json&lt;/code&gt; into project directory&lt;/p&gt;
+&lt;p&gt;&amp;lsquo;&amp;lsquo;Note: 1 service account can copy around 750gb a day, 1 project makes 100 service accounts so thats 75tb a day, for most users this should easily suffice. &#39;&amp;rsquo;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python3 gen_sa_accounts.py --quick-setup 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python3 gen_sa_accounts.py --quick-setup 1 --new-only
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;note: 这将覆盖现存的一个项目&lt;/p&gt;
+&lt;h4 id=&#34;step-3-add-service-accounts-to-google-groups-optional-but-recommended-for-hassle-free-long-term-use&#34;&gt;Step 3. Add service accounts to Google Groups (Optional but recommended for hassle free long term use)&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://support.google.com/a/answer/7338880?hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official limits to the members of Team Drive&lt;/a&gt; (Limit for individuals and groups directly added as members: 600)&lt;/p&gt;
+&lt;p&gt;对于 &lt;strong&gt;Gsuite Admin&lt;/strong&gt; 管理员&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Turn on the Directory API following &lt;a href=&#34;https://developers.google.com/admin-sdk/directory/v1/quickstart/python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official steps&lt;/a&gt; (save the generated json file to folder &lt;code&gt;credentials&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create group for your organization &lt;a href=&#34;https://support.google.com/a/answer/33343?hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;in the Admin console&lt;/a&gt;. After create a group, you will have an address for &lt;a href=&#34;mailto:example%60sa@yourdomain.com&#34;&gt;example`sa@yourdomain.com&lt;/a&gt;`.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;run&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python3 add_to_google_group.py -g sa@yourdomain.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;对于普通用户&#34;&gt;对于普通用户&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create &lt;a href=&#34;https://groups.google.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Group&lt;/a&gt; then add the service accounts as members by hand. Limit is 10 at a time, 100 a day but if you read our warning and notes above, you would have 1 project and hence easily in your range.&lt;/p&gt;
+&lt;h4 id=&#34;step-4-add-service-accounts-or-google-groups-into-team-drive&#34;&gt;Step 4. Add service accounts or Google Groups into Team Drive&lt;/h4&gt;
+&lt;h4 id=&#34;step-5-start-your-task&#34;&gt;Step 5. Start your task&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python3 rclone_sa_magic.py -s SourceID -d DestinationID -dp DestinationPathName -b 1 -e 600
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add &lt;code&gt;--disable_list_r&lt;/code&gt; if &lt;code&gt;rclone&lt;/code&gt; &lt;a href=&#34;https://forum.rclone.org/t/rclone-cannot-see-all-files-folder-in-public-shared-folder/12351&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cannot read all contents of public shared folder&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;rclone &amp;ndash;config rclone.conf size &amp;ndash;disable ListR src001:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;gclone第三代的安装和使用&#34;&gt;Gclone(第三代)的安装和使用&lt;/h3&gt;
+&lt;h4 id=&#34;安装方法-1&#34;&gt;安装方法&lt;/h4&gt;
+&lt;hr&gt;
+&lt;p&gt;linux一键脚本：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;bash &amp;lt;(wget -qO- https://git.io/gclone.sh)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gclone --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bansh&#34;&gt;[gc]
+type = drive
+scope = drive
+service_account_file = /root/AutoRclone/accounts/0079098d8d94d71d7a3042da3838a4d07346eb78.json
+service_account_file_path = /root/AutoRclone/accounts/
+root_folder_id = root
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;转存用法&lt;/p&gt;
+&lt;hr&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;大小检查&lt;/p&gt;
+&lt;hr&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gsize gc:{【目的盘】ID}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;fclone第四代的安装使用&#34;&gt;fclone(第四代)的安装使用&lt;/h3&gt;
+&lt;p&gt;项目地址：&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone&#34;&gt;https://github.com/mawaya/rclone&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone/releases&#34;&gt;https://github.com/mawaya/rclone/releases&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装使用方法：&lt;/p&gt;
+&lt;p&gt;以0.3.1为例&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/mawaya/rclone/releases/tag/fclone-v0.3.1
+unzip fclone-v0.3.1.zip /usr/bin/fclone
+chmod +x /usr/bin/fclone
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;使用方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;低配vps&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} —drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=128 --drive-pacer-min-sleep=1ms --check-first&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;低配vps推荐2&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;通用&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=256 --transfers=256 --drive-pacer-min-sleep=1ms --check-first&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=256 --transfers=256 --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --check-first&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;中高杜甫推荐&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fclone copy gc:{【源盘】ID} gc:{【目的盘】ID} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=320 --transfers=320 --drive-pacer-min-sleep=1ms --drive-pacer-burst=5000 --check-first&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;参数说明：&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&amp;ndash;drive-server-side-across-configs #服务端传递&lt;/p&gt;
+&lt;p&gt;&amp;ndash;stats=1s &amp;ndash;stats-one-line -vP #日常参数&lt;/p&gt;
+&lt;p&gt;&amp;ndash;checkers=数字 #越大越快&lt;/p&gt;
+&lt;p&gt;&amp;ndash;transfers=数字 #越大越快&lt;/p&gt;
+&lt;p&gt;&amp;ndash;drive-pacer-min-sleep=数字ms #越小越快&lt;/p&gt;
+&lt;p&gt;&amp;ndash;drive-pacer-burst=数字 #越大越快&lt;/p&gt;
+&lt;p&gt;&amp;ndash;check-first #fmod必须参数&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

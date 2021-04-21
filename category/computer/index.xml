@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer | Academic</title>
+    <link>/category/computer/</link>
+      <atom:link href="/category/computer/index.xml" rel="self" type="application/rss+xml" />
+    <description>Computer</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Computer</title>
+      <link>/category/computer/</link>
+    </image>
+    
+    <item>
+      <title>markdown语言学习测试</title>
+      <link>/post/2020-05-31-2/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/2020-05-31-2/</guid>
+      <description>&lt;h1 id=&#34;markdown语言学习测试&#34;&gt;markdown语言学习测试&lt;/h1&gt;
+&lt;h2 id=&#34;markdown&#34;&gt;markdown&lt;/h2&gt;
+&lt;h3 id=&#34;medsy&#34;&gt;medsy&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# markdown语言学习测试
+## markdown 
+### medsy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;正文部分内容，直接输入就可以了&lt;/p&gt;
+&lt;p&gt;其他的内容我们继续使用&lt;/p&gt;
+&lt;p&gt;代码块部分学习&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;```ipconfig ip```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;ipconfig ip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;正文中的代码 &lt;code&gt;ls -a&lt;/code&gt;来表示&lt;/p&gt;
+&lt;p&gt;列表联系&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. diyi jianshi
+2. dier jianshi
+   1. 2344343
+    2. 22323243434
+       1. 23343434
+       2. 23434343434
+
+
+ 无序列表
+ - 123
+   - 12345 
+        - 123434
+            - 2334343444
+            - 566756757 
+
+ **加粗**
+ *倾斜*
+ ***加粗倾斜***          
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;diyi jianshi&lt;/li&gt;
+&lt;li&gt;dier jianshi
+&lt;ol&gt;
+&lt;li&gt;2344343&lt;/li&gt;
+&lt;li&gt;22323243434
+&lt;ol&gt;
+&lt;li&gt;23343434&lt;/li&gt;
+&lt;li&gt;23434343434&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;无序列表&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;123
+&lt;ul&gt;
+&lt;li&gt;12345
+&lt;ul&gt;
+&lt;li&gt;123434
+&lt;ul&gt;
+&lt;li&gt;2334343444&lt;/li&gt;
+&lt;li&gt;566756757&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;加粗&lt;/strong&gt;
+&lt;em&gt;倾斜&lt;/em&gt;
+&lt;em&gt;&lt;strong&gt;加粗倾斜&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;图床图片的插入&#34;&gt;图床图片的插入&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;![avatar](https://d10z4n4qou5ghj.cloudfront.net/%E6%88%AA%E5%B1%8F2020-05-31%20%E4%B8%8B%E5%8D%886.15.06.png)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://d10z4n4qou5ghj.cloudfront.net/%E6%88%AA%E5%B1%8F2020-05-31%20%E4%B8%8B%E5%8D%886.15.06.png&#34; alt=&#34;avatar&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>“cloudflare” | Academic</title>
+    <link>/category/cloudflare/</link>
+      <atom:link href="/category/cloudflare/index.xml" rel="self" type="application/rss+xml" />
+    <description>“cloudflare”</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>“cloudflare”</title>
+      <link>/category/cloudflare/</link>
+    </image>
+    
+    <item>
+      <title>使用 Cloudflare WARP 给 VPS 服务器免费添加 IPv4 或 IPv6 网络支持</title>
+      <link>/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;以 Debian 10 为例，介绍如何搭建 WireGuard 后，采用warp技术，通过连接到cloudflare的边缘节点，实现链路优化，连接到warp来获取额外到网络连通性支持。&lt;/p&gt;
+&lt;h2 id=&#34;安装wireguard&#34;&gt;安装wireguard&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;apt update
+apt install curl sudo lsb-release -y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;添加backports源&#34;&gt;添加backports源：&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo sh -c &amp;quot;echo &#39;deb https://deb.debian.org/debian buster-backports main contrib non-free&#39; &amp;gt; /etc/apt/sources.list.d/buster-backports.list&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;安装软件包&#34;&gt;安装软件包&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt update
+sudo apt -t buster-backports install wireguard -y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;使用-wgcf-生成-wireguard-配置文件&#34;&gt;使用 wgcf 生成 WireGuard 配置文件&lt;/h3&gt;
+&lt;p&gt;wgcf 是 Cloud­flare WARP 的非官方 CLI 工具，它可以模拟 WARP 客户端注册账号，并生成通用的 Wire­Guard 配置文件。
+安装wgcf&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -fsSL git.io/wgcf.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注册 WARP 账户 (将生成 wgcf-account.toml 文件保存账户信息)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wgcf register
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;生成 Wire­Guard 配置文件 (wgcf-profile.conf)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wgcf generate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;生成的两个文件记得备份好，尤其是 wgcf-profile.conf，万一未来工具失效、重装系统后可能还用得着。&lt;/p&gt;
+&lt;h3 id=&#34;编辑-wireguard-配置文件wgcf-profileconf&#34;&gt;编辑 WireGuard 配置文件wgcf-profile.conf&lt;/h3&gt;
+&lt;p&gt;为 IPv4 Only 服务器添加 IPv6 网络支持
+将配置文件中的 engage.cloudflareclient.com 替换为 162.159.192.1，并删除 AllowedIPs = 0.0.0.0/0。&lt;/p&gt;
+&lt;h3 id=&#34;启用-wireguard-网络接口&#34;&gt;启用 WireGuard 网络接口&lt;/h3&gt;
+&lt;p&gt;将 Wire­Guard 配置文件复制到 /etc/wireguard/ 并命名为 wgcf.conf。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo cp wgcf-profile.conf /etc/wireguard/wgcf.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;开启网络接口（命令中的 wgcf 对应的是配置文件 wgcf.conf 的文件名前缀）。
+wg-quick up wgcf
+执行执行ip a命令，此时能看到名为wgcf的网络接口
+执行以下命令检查是否连通。同时也能看到正在使用的是 Cloud­flare 的网络&lt;/p&gt;
+&lt;h1 id=&#34;ipv4-only-vps&#34;&gt;IPv4 Only VPS&lt;/h1&gt;
+&lt;p&gt;curl -6 ip.p3terx.com&lt;/p&gt;
+&lt;h1 id=&#34;ipv6-only-vps&#34;&gt;IPv6 Only VPS&lt;/h1&gt;
+&lt;p&gt;curl -4 ip.p3terx.com
+测试完成后关闭相关接口，因为这样配置只是临时性的。
+sudo wg-quick down wgcf
+正式启用 Wire­Guard 网络接口&lt;/p&gt;
+&lt;h1 id=&#34;启用守护进程&#34;&gt;启用守护进程&lt;/h1&gt;
+&lt;p&gt;sudo systemctl start wg-quick@wgcf&lt;/p&gt;
+&lt;h1 id=&#34;设置开机启动&#34;&gt;设置开机启动&lt;/h1&gt;
+&lt;p&gt;sudo systemctl enable wg-quick@wgcf&lt;/p&gt;
+&lt;h3 id=&#34;cloudflare-warp-网速测试&#34;&gt;Cloudflare WARP 网速测试&lt;/h3&gt;
+&lt;p&gt;目前暂时还未找到很好的方法来测试指定网络接口的速度，而目前已知 speedtest.net 提供的测速是 IPv4 Only 的，那么就可以使用其提供的 CLI 工具在 IPv6 Only 的 VPS 上来测试通过 WARP 访问外部网络的极限网速。
+安装 Ookla Speedtest CLI
+curl -fsSL git.io/speedtest-cli.sh | sudo bash
+执行speedtest命令测速。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

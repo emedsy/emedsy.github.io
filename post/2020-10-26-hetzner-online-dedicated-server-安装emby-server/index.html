@@ -1,0 +1,1266 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.1.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Nelson Bighetti" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="使用hetzner的dedicated server搭建emby的过程" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/" />
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.9a66e344a68eb664b392d406a3f80726.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/index.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_180x180_fill_lanczos_center_2.png" />
+
+  <link rel="canonical" href="/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Academic" />
+  <meta property="og:url" content="/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/" />
+  <meta property="og:title" content="Hetzner Online dedicated server 安装emby-server | Academic" />
+  <meta property="og:description" content="使用hetzner的dedicated server搭建emby的过程" /><meta property="og:image" content="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png" />
+    <meta property="twitter:image" content="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2020-10-26T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2020-10-26T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/"
+  },
+  "headline": "Hetzner Online dedicated server 安装emby-server",
+  
+  "datePublished": "2020-10-26T00:00:00Z",
+  "dateModified": "2020-10-26T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "bush"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "使用hetzner的dedicated server搭建emby的过程"
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Hetzner Online dedicated server 安装emby-server | Academic</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="9ce76dc101a25834d38836425d6843f5" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.226a9011996d125bf3fe4a5f22353a49.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+<div class="article-header">
+  
+  
+    <img src="static/media/11.png" class="article-banner" alt="">
+  
+
+  
+</div>
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Hetzner Online dedicated server 安装emby-server</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span >
+      bush</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Oct 26, 2020
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/emby/">emby</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <hr>
+<p>进来由于emby服务器播放谷歌gdrive比较火，正好赶上科学家，z大各位大神，先行各种踏坑，我也记录一下个人使用hetzner的dedicated server搭建emby的过程。</p>
+<h3 id="1-搭建环境的的选择">1, 搭建环境的的选择</h3>
+<p>我搭建的目的是在墙内播放谷歌gdrive的片源，cpu能硬解4k，机器选择了hetzner的1275v5，拍卖获得，核显是p530，基本上能硬解播放1080p和4k，hevc格式，cpu占用单个用户播放，cpu占用不会超过100%，这样，减轻了服务端解码的压力。只要客户端建立合适的fd线路，基本流畅播放。</p>
+<p>操作系统我选择的debian 10.3，hetzner提供的，64g内存，480g*2ssd硬盘，性能有点过剩。但是没有太合适的了。</p>
+<h3 id="2安装emby">2，安装emby</h3>
+<p>访问 <a href="https://emby.media/linux-server.html">https://emby.media/linux-server.html</a></p>
+<pre><code class="language-bash">wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.5.2.0/emby-server-deb_4.5.2.0_amd64.deb
+dpkg -i emby-server-deb_4.5.2.0_amd64.deb
+</code></pre>
+<p>Open a web browser to http://ip:8096
+设置管理员账户</p>
+<h3 id="3安装rclone">3，安装rclone</h3>
+<pre><code class="language-bash">curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<p>安装最新版本rclone，配置挂载团队盘，在此有两种选择：
+a，将谷歌团队盘挂载本地目录上，用emby自行削刮
+b，采用科学家大佬提供的削刮好的数据包（你需要有科学家团队盘的权限），下载解压使用现成的削刮元数据，可以节省大量时间，削刮好的元数据大约60-100g左右。
+需要注意的是，采用削刮好的数据，你的团队盘的命名和挂载目录的命名，应该和科学家的命名一样，以减少错误。
+科学家的挂载 <a href="https://blog.vwert.com/CloudStorage/Emby-GoogleDrive.html" target="_blank" rel="noopener">教程</a></p>
+<p>举例：</p>
+<pre><code class="language-bash">mkdir -p /mnt/EmbyMedia/MOVIE #为EmbyMedia_VIP1_Movie盘创建挂载点
+rclone mount EmbyMedia_VIP_Movie_play: /mnt/EmbyMedia/MOVIE --umask 0000 --default-permissions --allow-non-empty --allow-other --buffer-size 32M --dir-cache-time 12h --vfs-read-chunk-size 64M --vfs-read-chunk-size-limit 1G &amp; #挂载EmbyMedia_VIP1_Movie盘
+</code></pre>
+<p>但是，rclone mount 参数可以适当改变</p>
+<p>&ndash;allow-other &ndash;uid 1000 &ndash;gid 1000 &ndash;umask 022 &ndash;default-permissions &ndash;allow-non-empty &ndash;allow-other &ndash;dir-cache-time 12h &ndash;poll-interval 5m &ndash;buffer-size 128M &ndash;vfs-read-chunk-size 32M &ndash;vfs-read-chunk-size-limit 1G</p>
+<p>&ndash;vfs-read-chunk-size这个减少一点削刮会快一点</p>
+<p>挂载完毕后</p>
+<pre><code class="language-bash">df -h
+</code></pre>
+<p>查看磁盘容量，看是否挂载成功</p>
+<h3 id="4削刮元数据">4，削刮元数据</h3>
+<p>如果是使用科学家大佬的团队盘，继续按照科学家教程走一遍即可，如果想自己削刮，需要注意的是：</p>
+<p>不论电影还是电视连续剧的削刮，都需要使用themoviedb数据库，因为大家在一起维护数据库，修改错误。</p>
+<p>hash值匹配，选择其他的选项，选择越多，数据越全，但是削刮速度也变慢，每个人根据情况选择。因为，电影电视总共10多万部。削刮是非常缓慢的过程。</p>
+<p>科学家大佬的削刮好的数据包，还发现另外一个问题，就是削刮选项里有往源文件目录写入字幕，nfo等文件，但我们的权限常常是viewer，而非manager，所以，还应该把写入的选项去掉为好，读取为主！</p>
+<h3 id="5转码--transcoding">5，转码  transcoding</h3>
+<p>转码是emby服务器，premiere提供的选项，如果是的话，你需要让核显运行才能显示解码器。如果，你的转码选项里没有出现</p>
+<p><em><strong>Preferred Hardware Decoders</strong></em></p>
+<p><em><strong>Preferred Hardware Encoders</strong></em></p>
+<p>说明你的核显没有正常工作。对于核显硬解的实现，我个人参照了科学家大佬的<a href="https://blog.vwert.com/srv/emby-intel--vaapi-qsv-ffmpeg.html" target="_blank" rel="noopener">让 emby 支持硬解和网页播放</a>,这篇文章。叙述的比较详细，因为我的操作系统不是Ubuntu，Debian系统略有不同，但是走了下来，发现debian没能实现添加Oibaf PPA，ffmpeg最后编译的不是很完全。</p>
+<p>emby的transcode能够工作。部分hevc出现了软解，或者不稳定，被我放弃了，所以改成docker模式，但是，元数据削刮的部分还可以用，弃之可惜，让docker直接使用现成的削刮结果。</p>
+<h3 id="6docker-emby实现">6，docker emby实现</h3>
+<pre><code class="language-bash">apt install docker-compose
+vi docker.yml
+</code></pre>
+<pre><code class="language-bash">version: &quot;2.1&quot;
+services:
+  emby:
+    image: linuxserver/emby
+    container_name: emby
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=&lt;022&gt; #optional
+    volumes:
+      - /var/lib/emby:/config
+      - /mnt/EmbyMedia:/mnt/EmbyMedia 
+      - /home:/transcode #optional
+      - /opt/vc/lib:/opt/vc/lib #optional
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+    devices:
+      - /dev/dri:/dev/dri #optional
+    
+    restart: unless-stopped
+</code></pre>
+<p>编辑好dockerfile文件。</p>
+<pre><code class="language-bash"> sudo chown -R 1000:1000 /var/lib/emby
+</code></pre>
+<p>把元数据目录权限交给docker。</p>
+<pre><code class="language-bash">docker-compose -f docker.yml up -d
+</code></pre>
+<p>创建docker-emby容器，同时，直通显卡。由于docker容器内，各种库构建的全面，省却了，各种库安装调试的烦恼。</p>
+<p>访问：http://ip:8096, 测试emby的运行状态，一般这个时候，转码的各个解码器，就可以正常运行了。</p>
+<h3 id="7开通https反向代理">7，开通https反向代理</h3>
+<pre><code class="language-bash">sudo apt install caddy
+</code></pre>
+<p>编辑caddyfile</p>
+<pre><code class="language-bash">vi /etc/caddy/Caddyfile
+</code></pre>
+<p>反代8096端口。自动https</p>
+<pre><code class="language-bash"># The Caddyfile is an easy way to configure your Caddy web server.
+#
+# Unless the file starts with a global options block, the first
+# uncommented line is always the address of your site.
+#
+# To use your own domain name (with automatic HTTPS), first make
+# sure your domain's A/AAAA DNS records are properly pointed to
+# this machine's public IP, then replace the line below with your
+# domain name.
+your.domain
+
+# Set this path to your site's directory.
+#root * /usr/share/caddy
+
+# Enable the static file server.
+file_server
+reverse_proxy 127.0.0.1:8096
+
+# Another common task is to set up a reverse proxy:
+# reverse_proxy localhost:8080
+
+# Or serve a PHP site through php-fpm:
+# php_fastcgi localhost:9000
+
+# Refer to the Caddy docs for more information:
+# https://caddyserver.com/docs/caddyfile
+</code></pre>
+<p>这样，你的https://your.ip就完成了。只要国内有合适的梯子，应该能够流畅观看。</p>
+<p>如果你有gia结点的话，直接把caddy反代搭建在gia节点上，域名指向gia结点ip，国内不用梯子，可以直接观看。</p>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/">网络应用</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/&amp;text=Hetzner%20Online%20dedicated%20server%20%e5%ae%89%e8%a3%85emby-server" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/&amp;t=Hetzner%20Online%20dedicated%20server%20%e5%ae%89%e8%a3%85emby-server" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Hetzner%20Online%20dedicated%20server%20%e5%ae%89%e8%a3%85emby-server&amp;body=/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/&amp;title=Hetzner%20Online%20dedicated%20server%20%e5%ae%89%e8%a3%85emby-server" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Hetzner%20Online%20dedicated%20server%20%e5%ae%89%e8%a3%85emby-server%20/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/&amp;title=Hetzner%20Online%20dedicated%20server%20%e5%ae%89%e8%a3%85emby-server" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/2020-09-16centos%E5%BB%BA%E7%AB%8Bss/">CentOS 安装 shadowsocks-libev 服务端</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.b61a8f62b6e5c0cd322c8158c5b5dfb6.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

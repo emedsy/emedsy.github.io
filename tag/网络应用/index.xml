@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网络应用 | Academic</title>
+    <link>/tag/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/</link>
+      <atom:link href="/tag/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    <description>网络应用</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>网络应用</title>
+      <link>/tag/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/</link>
+    </image>
+    
+    <item>
+      <title>Hetzner Online dedicated server 安装emby-server</title>
+      <link>/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;进来由于emby服务器播放谷歌gdrive比较火，正好赶上科学家，z大各位大神，先行各种踏坑，我也记录一下个人使用hetzner的dedicated server搭建emby的过程。&lt;/p&gt;
+&lt;h3 id=&#34;1-搭建环境的的选择&#34;&gt;1, 搭建环境的的选择&lt;/h3&gt;
+&lt;p&gt;我搭建的目的是在墙内播放谷歌gdrive的片源，cpu能硬解4k，机器选择了hetzner的1275v5，拍卖获得，核显是p530，基本上能硬解播放1080p和4k，hevc格式，cpu占用单个用户播放，cpu占用不会超过100%，这样，减轻了服务端解码的压力。只要客户端建立合适的fd线路，基本流畅播放。&lt;/p&gt;
+&lt;p&gt;操作系统我选择的debian 10.3，hetzner提供的，64g内存，480g*2ssd硬盘，性能有点过剩。但是没有太合适的了。&lt;/p&gt;
+&lt;h3 id=&#34;2安装emby&#34;&gt;2，安装emby&lt;/h3&gt;
+&lt;p&gt;访问 &lt;a href=&#34;https://emby.media/linux-server.html&#34;&gt;https://emby.media/linux-server.html&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.5.2.0/emby-server-deb_4.5.2.0_amd64.deb
+dpkg -i emby-server-deb_4.5.2.0_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Open a web browser to http://ip:8096
+设置管理员账户&lt;/p&gt;
+&lt;h3 id=&#34;3安装rclone&#34;&gt;3，安装rclone&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;curl https://rclone.org/install.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装最新版本rclone，配置挂载团队盘，在此有两种选择：
+a，将谷歌团队盘挂载本地目录上，用emby自行削刮
+b，采用科学家大佬提供的削刮好的数据包（你需要有科学家团队盘的权限），下载解压使用现成的削刮元数据，可以节省大量时间，削刮好的元数据大约60-100g左右。
+需要注意的是，采用削刮好的数据，你的团队盘的命名和挂载目录的命名，应该和科学家的命名一样，以减少错误。
+科学家的挂载 &lt;a href=&#34;https://blog.vwert.com/CloudStorage/Emby-GoogleDrive.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;举例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir -p /mnt/EmbyMedia/MOVIE #为EmbyMedia_VIP1_Movie盘创建挂载点
+rclone mount EmbyMedia_VIP_Movie_play: /mnt/EmbyMedia/MOVIE --umask 0000 --default-permissions --allow-non-empty --allow-other --buffer-size 32M --dir-cache-time 12h --vfs-read-chunk-size 64M --vfs-read-chunk-size-limit 1G &amp;amp; #挂载EmbyMedia_VIP1_Movie盘
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是，rclone mount 参数可以适当改变&lt;/p&gt;
+&lt;p&gt;&amp;ndash;allow-other &amp;ndash;uid 1000 &amp;ndash;gid 1000 &amp;ndash;umask 022 &amp;ndash;default-permissions &amp;ndash;allow-non-empty &amp;ndash;allow-other &amp;ndash;dir-cache-time 12h &amp;ndash;poll-interval 5m &amp;ndash;buffer-size 128M &amp;ndash;vfs-read-chunk-size 32M &amp;ndash;vfs-read-chunk-size-limit 1G&lt;/p&gt;
+&lt;p&gt;&amp;ndash;vfs-read-chunk-size这个减少一点削刮会快一点&lt;/p&gt;
+&lt;p&gt;挂载完毕后&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;df -h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看磁盘容量，看是否挂载成功&lt;/p&gt;
+&lt;h3 id=&#34;4削刮元数据&#34;&gt;4，削刮元数据&lt;/h3&gt;
+&lt;p&gt;如果是使用科学家大佬的团队盘，继续按照科学家教程走一遍即可，如果想自己削刮，需要注意的是：&lt;/p&gt;
+&lt;p&gt;不论电影还是电视连续剧的削刮，都需要使用themoviedb数据库，因为大家在一起维护数据库，修改错误。&lt;/p&gt;
+&lt;p&gt;hash值匹配，选择其他的选项，选择越多，数据越全，但是削刮速度也变慢，每个人根据情况选择。因为，电影电视总共10多万部。削刮是非常缓慢的过程。&lt;/p&gt;
+&lt;p&gt;科学家大佬的削刮好的数据包，还发现另外一个问题，就是削刮选项里有往源文件目录写入字幕，nfo等文件，但我们的权限常常是viewer，而非manager，所以，还应该把写入的选项去掉为好，读取为主！&lt;/p&gt;
+&lt;h3 id=&#34;5转码--transcoding&#34;&gt;5，转码  transcoding&lt;/h3&gt;
+&lt;p&gt;转码是emby服务器，premiere提供的选项，如果是的话，你需要让核显运行才能显示解码器。如果，你的转码选项里没有出现&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Preferred Hardware Decoders&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Preferred Hardware Encoders&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;说明你的核显没有正常工作。对于核显硬解的实现，我个人参照了科学家大佬的&lt;a href=&#34;https://blog.vwert.com/srv/emby-intel--vaapi-qsv-ffmpeg.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;让 emby 支持硬解和网页播放&lt;/a&gt;,这篇文章。叙述的比较详细，因为我的操作系统不是Ubuntu，Debian系统略有不同，但是走了下来，发现debian没能实现添加Oibaf PPA，ffmpeg最后编译的不是很完全。&lt;/p&gt;
+&lt;p&gt;emby的transcode能够工作。部分hevc出现了软解，或者不稳定，被我放弃了，所以改成docker模式，但是，元数据削刮的部分还可以用，弃之可惜，让docker直接使用现成的削刮结果。&lt;/p&gt;
+&lt;h3 id=&#34;6docker-emby实现&#34;&gt;6，docker emby实现&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;apt install docker-compose
+vi docker.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;version: &amp;quot;2.1&amp;quot;
+services:
+  emby:
+    image: linuxserver/emby
+    container_name: emby
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=&amp;lt;022&amp;gt; #optional
+    volumes:
+      - /var/lib/emby:/config
+      - /mnt/EmbyMedia:/mnt/EmbyMedia 
+      - /home:/transcode #optional
+      - /opt/vc/lib:/opt/vc/lib #optional
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
+    devices:
+      - /dev/dri:/dev/dri #optional
+    
+    restart: unless-stopped
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编辑好dockerfile文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; sudo chown -R 1000:1000 /var/lib/emby
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;把元数据目录权限交给docker。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker-compose -f docker.yml up -d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;创建docker-emby容器，同时，直通显卡。由于docker容器内，各种库构建的全面，省却了，各种库安装调试的烦恼。&lt;/p&gt;
+&lt;p&gt;访问：http://ip:8096, 测试emby的运行状态，一般这个时候，转码的各个解码器，就可以正常运行了。&lt;/p&gt;
+&lt;h3 id=&#34;7开通https反向代理&#34;&gt;7，开通https反向代理&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt install caddy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编辑caddyfile&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;vi /etc/caddy/Caddyfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;反代8096端口。自动https&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# The Caddyfile is an easy way to configure your Caddy web server.
+#
+# Unless the file starts with a global options block, the first
+# uncommented line is always the address of your site.
+#
+# To use your own domain name (with automatic HTTPS), first make
+# sure your domain&#39;s A/AAAA DNS records are properly pointed to
+# this machine&#39;s public IP, then replace the line below with your
+# domain name.
+your.domain
+
+# Set this path to your site&#39;s directory.
+#root * /usr/share/caddy
+
+# Enable the static file server.
+file_server
+reverse_proxy 127.0.0.1:8096
+
+# Another common task is to set up a reverse proxy:
+# reverse_proxy localhost:8080
+
+# Or serve a PHP site through php-fpm:
+# php_fastcgi localhost:9000
+
+# Refer to the Caddy docs for more information:
+# https://caddyserver.com/docs/caddyfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样，你的https://your.ip就完成了。只要国内有合适的梯子，应该能够流畅观看。&lt;/p&gt;
+&lt;p&gt;如果你有gia结点的话，直接把caddy反代搭建在gia节点上，域名指向gia结点ip，国内不用梯子，可以直接观看。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CentOS 安装 shadowsocks-libev 服务端</title>
+      <link>/post/2020-09-16centos%E5%BB%BA%E7%AB%8Bss/</link>
+      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>/post/2020-09-16centos%E5%BB%BA%E7%AB%8Bss/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;本教程主要用在centos7或8，因为centos环境下trojan搭建相对简单，ss因为占用资源比较小。&lt;/p&gt;
+&lt;h3 id=&#34;1准备编译环境&#34;&gt;1、准备编译环境&lt;/h3&gt;
+&lt;p&gt;CentOS 7&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto c-ares-devel libev-devel libsodium-devel mbedtls-devel -y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;CentOS 8&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto c-ares-devel libev-devel -y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;先从最近的源码编译安装libmbedtls和libsodium&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export LIBSODIUM_VER=1.0.11
+export MBEDTLS_VER=2.4.0
+wget https://download.libsodium.org/libsodium/releases/libsodium-$LIBSODIUM_VER.tar.gz
+tar xvf libsodium-$LIBSODIUM_VER.tar.gz
+pushd libsodium-$LIBSODIUM_VER
+./configure --prefix=/usr &amp;amp;&amp;amp; make
+sudo make install
+popd
+wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz
+tar xvf mbedtls-$MBEDTLS_VER-gpl.tgz
+pushd mbedtls-$MBEDTLS_VER
+make SHARED=1 CFLAGS=-fPIC
+sudo make DESTDIR=/usr install
+popd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;2获取shadowsocks-libev源码-并安装&#34;&gt;2、获取shadowsocks-libev源码, 并安装&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;yum install git
+git clone https://github.com/shadowsocks/shadowsocks-libev.git
+cd shadowsocks-libev
+git submodule update --init
+./autogen.sh &amp;amp;&amp;amp; ./configure --disable-documentation &amp;amp;&amp;amp; make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3-创建配置文件&#34;&gt;3、 创建配置文件&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo mkdir /etc/shadowsocks-libev
+sudo vi /etc/shadowsocks-libev/config.json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;复制粘贴如下内容（注意修改密码“password”）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;{
+     &amp;quot;server&amp;quot;:&amp;quot;0.0.0.0&amp;quot;,
+     &amp;quot;server_port&amp;quot;:8388,
+     &amp;quot;password&amp;quot;:&amp;quot;password&amp;quot;,
+     &amp;quot;timeout&amp;quot;:600,
+     &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot; ,
+     &amp;quot;fast_open&amp;quot;: false
+ }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;4创建shadowsocks-libevservice配置文件&#34;&gt;4、创建Shadowsocks-libev.service配置文件&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo vi /etc/systemd/system/shadowsocks-libev.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;复制粘贴：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[Unit]
+Description=Shadowsocks-libev Server
+Documentation=https://shadowsocks.org/en/
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ss-server -c /etc/shadowsocks-libev/config.json -u
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;5启动-shadowsocks-libev-服务&#34;&gt;5、启动 Shadowsocks-libev 服务&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo systemctl start shadowsocks-libev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;6设置开机启动&#34;&gt;6、设置开机启动&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo systemctl enable shadowsocks-libev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;设置防火墙开放端口&#34;&gt;设置防火墙开放端口&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;firewall-cmd --zone=public --add-port=8388/tcp --permanent
+firewall-cmd --zone=public --add-port=8388/udp --permanent
+sudo systemctl restart firewalld
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
