@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>“cloudflare” | Academic</title>
-    <link>/category/cloudflare/</link>
-      <atom:link href="/category/cloudflare/index.xml" rel="self" type="application/rss+xml" />
+    <title>“cloudflare” | bushqin的博客</title>
+    <link>https://surginsy.top/category/cloudflare/</link>
+      <atom:link href="https://surginsy.top/category/cloudflare/index.xml" rel="self" type="application/rss+xml" />
     <description>“cloudflare”</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
       <title>“cloudflare”</title>
-      <link>/category/cloudflare/</link>
+      <link>https://surginsy.top/category/cloudflare/</link>
     </image>
     
     <item>
       <title>使用 Cloudflare WARP 给 VPS 服务器免费添加 IPv4 或 IPv6 网络支持</title>
-      <link>/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</link>
+      <link>https://surginsy.top/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</guid>
+      <guid>https://surginsy.top/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;以 Debian 10 为例，介绍如何搭建 WireGuard 后，采用warp技术，通过连接到cloudflare的边缘节点，实现链路优化，连接到warp来获取额外到网络连通性支持。&lt;/p&gt;
 &lt;h2 id=&#34;安装wireguard&#34;&gt;安装wireguard&lt;/h2&gt;

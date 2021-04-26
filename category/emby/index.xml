@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>emby | Academic</title>
-    <link>/category/emby/</link>
-      <atom:link href="/category/emby/index.xml" rel="self" type="application/rss+xml" />
+    <title>emby | bushqin的博客</title>
+    <link>https://surginsy.top/category/emby/</link>
+      <atom:link href="https://surginsy.top/category/emby/index.xml" rel="self" type="application/rss+xml" />
     <description>emby</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
       <title>emby</title>
-      <link>/category/emby/</link>
+      <link>https://surginsy.top/category/emby/</link>
     </image>
     
     <item>
       <title>Hetzner Online dedicated server 安装emby-server</title>
-      <link>/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</link>
+      <link>https://surginsy.top/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</link>
       <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</guid>
+      <guid>https://surginsy.top/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;进来由于emby服务器播放谷歌gdrive比较火，正好赶上科学家，z大各位大神，先行各种踏坑，我也记录一下个人使用hetzner的dedicated server搭建emby的过程。&lt;/p&gt;
 &lt;h3 id=&#34;1-搭建环境的的选择&#34;&gt;1, 搭建环境的的选择&lt;/h3&gt;

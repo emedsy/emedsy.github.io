@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Art | Academic</title>
-    <link>/category/art/</link>
-      <atom:link href="/category/art/index.xml" rel="self" type="application/rss+xml" />
+    <title>Art | bushqin的博客</title>
+    <link>https://surginsy.top/category/art/</link>
+      <atom:link href="https://surginsy.top/category/art/index.xml" rel="self" type="application/rss+xml" />
     <description>Art</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
       <title>Art</title>
-      <link>/category/art/</link>
+      <link>https://surginsy.top/category/art/</link>
     </image>
     
     <item>
       <title>测试</title>
-      <link>/post/2020-05-31/</link>
+      <link>https://surginsy.top/post/2020-05-31/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-05-31/</guid>
+      <guid>https://surginsy.top/post/2020-05-31/</guid>
       <description>&lt;p&gt;如果您对Git充满信心，请按照上述“ 使用Git安装”中的说明进行操作，否则，请 按照“ 使用ZIP安装”进行操作。&lt;/p&gt;
 &lt;p&gt;跳过“ 安装Hugo”步骤，因为我们将使用RStudio安装Hugo
 打开 RStudio，安装Blogdown和Hugo依赖项：&lt;/p&gt;

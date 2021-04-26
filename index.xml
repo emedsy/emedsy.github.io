@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Academic</title>
-    <link>/</link>
-      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <description>Academic</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <title>bushqin的博客</title>
+    <link>https://surginsy.top/</link>
+      <atom:link href="https://surginsy.top/index.xml" rel="self" type="application/rss+xml" />
+    <description>bushqin的博客</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
-      <title>Academic</title>
-      <link>/</link>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
+      <title>bushqin的博客</title>
+      <link>https://surginsy.top/</link>
     </image>
     
     <item>
       <title>Example Talk</title>
-      <link>/talk/example-talk/</link>
+      <link>https://surginsy.top/talk/example-talk/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>/talk/example-talk/</guid>
+      <guid>https://surginsy.top/talk/example-talk/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -34,9 +34,9 @@
     
     <item>
       <title>2021-04-22hugo生成博客托管在github使用cloudflare page发布</title>
-      <link>/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</link>
+      <link>https://surginsy.top/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</link>
       <pubDate>Thu, 22 Apr 2021 18:12:43 +0800</pubDate>
-      <guid>/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</guid>
+      <guid>https://surginsy.top/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;   作为一个非专业的小白，非常希望自己能有机会机会搭建一个自己的博客，wordpress虽然有现成的可以租用，免维护，但是，还是希望把所有的控制权都把握在自己手里，最终，通过hugo生成博客，生成了html静态网页，存放在github上，可以使用gitpage发布，如果想添加自己的域名可以使用cloudflare page 发布。&lt;/p&gt;
 &lt;h2 id=&#34;hugo-安装--更新&#34;&gt;Hugo 安装 / 更新&lt;/h2&gt;
@@ -73,7 +73,7 @@ hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，�
 &lt;p&gt;将 hugo 命令生成的 public 文件夹上传到 GitHub pages 项目下。&lt;/p&gt;
 &lt;p&gt;public 文件夹相当于编译完成的静态网站，你在本地打开其实就能看。换句话说，你每次手动将这个目录下的内容上传到你的 GitHub page 项目也是可以的。&lt;/p&gt;
 &lt;p&gt;然后为了达到这个目的，Academic 给出的做法是利用 git submodule 将你的 GitHub page 项目作为 My_Website 项目的子模块存放到 public 目录。那么当你更新你的文章之后，只提交 public 文件夹内的变更到 GitHub page 项目即可。
-&lt;img src=&#34;/image/1.png&#34; alt=&#34;images&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://surginsy.top/image/1.png&#34; alt=&#34;images&#34;&gt;&lt;/p&gt;
 &lt;p&gt;官方教程 (缩减版)
 原教程 看这里；&lt;/p&gt;
 &lt;p&gt;在 GitHub 上创建两个项目，一个是 fork 的 academic-kickstart，也就是你前面 clone 到本地的 My_Website，另一个即是以你用户名 / 组织名开头、以 .github.io 结尾的 GitHub page 项目。&lt;/p&gt;
@@ -107,9 +107,9 @@ git commit -m &amp;quot;git submodule updated&amp;quot;
     
     <item>
       <title>使用 Cloudflare WARP 给 VPS 服务器免费添加 IPv4 或 IPv6 网络支持</title>
-      <link>/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</link>
+      <link>https://surginsy.top/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</guid>
+      <guid>https://surginsy.top/post/2021-04-05%E4%BD%BF%E7%94%A8-cloudflare-warp-%E7%BB%99-vps-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8D%E8%B4%B9%E6%B7%BB%E5%8A%A0-ipv4-%E6%88%96-ipv6-%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;以 Debian 10 为例，介绍如何搭建 WireGuard 后，采用warp技术，通过连接到cloudflare的边缘节点，实现链路优化，连接到warp来获取额外到网络连通性支持。&lt;/p&gt;
 &lt;h2 id=&#34;安装wireguard&#34;&gt;安装wireguard&lt;/h2&gt;
@@ -167,9 +167,9 @@ curl -fsSL git.io/speedtest-cli.sh | sudo bash
     
     <item>
       <title>Welcome to Wowchemy, the website builder for Hugo</title>
-      <link>/post/getting-started/</link>
+      <link>https://surginsy.top/post/getting-started/</link>
       <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>/post/getting-started/</guid>
+      <guid>https://surginsy.top/post/getting-started/</guid>
       <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;The Wowchemy website builder for Hugo, along with its starter templates, is designed for professional creators, educators, and teams/organizations - although it can be used to create any kind of site&lt;/li&gt;
@@ -244,9 +244,9 @@ curl -fsSL git.io/speedtest-cli.sh | sudo bash
     
     <item>
       <title>Hetzner Online dedicated server 安装emby-server</title>
-      <link>/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</link>
+      <link>https://surginsy.top/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</link>
       <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</guid>
+      <guid>https://surginsy.top/post/2020-10-26-hetzner-online-dedicated-server-%E5%AE%89%E8%A3%85emby-server/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;进来由于emby服务器播放谷歌gdrive比较火，正好赶上科学家，z大各位大神，先行各种踏坑，我也记录一下个人使用hetzner的dedicated server搭建emby的过程。&lt;/p&gt;
 &lt;h3 id=&#34;1-搭建环境的的选择&#34;&gt;1, 搭建环境的的选择&lt;/h3&gt;
@@ -365,9 +365,9 @@ reverse_proxy 127.0.0.1:8096
     
     <item>
       <title>CentOS 安装 shadowsocks-libev 服务端</title>
-      <link>/post/2020-09-16centos%E5%BB%BA%E7%AB%8Bss/</link>
+      <link>https://surginsy.top/post/2020-09-16centos%E5%BB%BA%E7%AB%8Bss/</link>
       <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-09-16centos%E5%BB%BA%E7%AB%8Bss/</guid>
+      <guid>https://surginsy.top/post/2020-09-16centos%E5%BB%BA%E7%AB%8Bss/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;本教程主要用在centos7或8，因为centos环境下trojan搭建相对简单，ss因为占用资源比较小。&lt;/p&gt;
 &lt;h3 id=&#34;1准备编译环境&#34;&gt;1、准备编译环境&lt;/h3&gt;
@@ -449,9 +449,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>治疗特应性皮炎（湿疹）</title>
-      <link>/post/2020-08-31%E6%B9%BF%E7%96%B9%E8%AF%8A%E6%96%AD%E6%B2%BB%E7%96%97/</link>
+      <link>https://surginsy.top/post/2020-08-31%E6%B9%BF%E7%96%B9%E8%AF%8A%E6%96%AD%E6%B2%BB%E7%96%97/</link>
       <pubDate>Mon, 31 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-08-31%E6%B9%BF%E7%96%B9%E8%AF%8A%E6%96%AD%E6%B2%BB%E7%96%97/</guid>
+      <guid>https://surginsy.top/post/2020-08-31%E6%B9%BF%E7%96%B9%E8%AF%8A%E6%96%AD%E6%B2%BB%E7%96%97/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;介绍&lt;/strong&gt;特应性皮炎是一种慢性，瘙痒性，炎性皮肤病，最常发生于儿童，但也影响许多成年人。特应性皮炎的临床特征包括皮肤干燥，红斑，渗出和湿疹斑块（屑状皮疹）。瘙痒是该疾病的标志，对患者及其家庭造成了很大的疾病负担。&lt;/p&gt;
 &lt;p&gt;治疗的目标是减轻症状（瘙痒和皮炎），防止病情加重并使治疗风险最小化。这些患者的标准治疗方式以局部使用抗炎制剂和皮肤保湿为中心，但是重症患者可能需要光疗或全身治疗。&lt;/p&gt;
@@ -656,9 +656,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>甲状腺的手术解剖</title>
-      <link>/post/2020-08-25-%E7%94%B2%E7%8A%B6%E8%85%BA%E7%9A%84%E6%89%8B%E6%9C%AF%E8%A7%A3%E5%89%96/</link>
+      <link>https://surginsy.top/post/2020-08-25-%E7%94%B2%E7%8A%B6%E8%85%BA%E7%9A%84%E6%89%8B%E6%9C%AF%E8%A7%A3%E5%89%96/</link>
       <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-08-25-%E7%94%B2%E7%8A%B6%E8%85%BA%E7%9A%84%E6%89%8B%E6%9C%AF%E8%A7%A3%E5%89%96/</guid>
+      <guid>https://surginsy.top/post/2020-08-25-%E7%94%B2%E7%8A%B6%E8%85%BA%E7%9A%84%E6%89%8B%E6%9C%AF%E8%A7%A3%E5%89%96/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;介绍&lt;/strong&gt;Emil Theodor Kocher和Theodor Billroth在1800年代后期率先进行了甲状腺疾病的外科手术治疗。他们的手术技术，甲状腺生理知识和防腐方法使危及生命的手术转变为发病率可接受的手术。精细的技术，加上对甲状腺胚胎学和解剖学的了解，是当今外科治疗的基础。对甲状腺解剖结构的透彻了解对安全甲状腺手术的执行至关重要&lt;/p&gt;
 &lt;p&gt;甲状腺解剖在这里讨论。甲状腺切除术和手术技术的适应症在其他地方讨论。&lt;/p&gt;
@@ -727,9 +727,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>微创胸外科概述</title>
-      <link>/post/2020-08-03%E5%BE%AE%E5%88%9B%E8%83%B8%E5%A4%96%E7%A7%91%E6%A6%82%E8%BF%B0/</link>
+      <link>https://surginsy.top/post/2020-08-03%E5%BE%AE%E5%88%9B%E8%83%B8%E5%A4%96%E7%A7%91%E6%A6%82%E8%BF%B0/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-08-03%E5%BE%AE%E5%88%9B%E8%83%B8%E5%A4%96%E7%A7%91%E6%A6%82%E8%BF%B0/</guid>
+      <guid>https://surginsy.top/post/2020-08-03%E5%BE%AE%E5%88%9B%E8%83%B8%E5%A4%96%E7%A7%91%E6%A6%82%E8%BF%B0/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;电视胸腔镜手术（VATS）是一套用于诊断或治疗胸部疾病（肺部，纵隔，胸壁）的微创胸外科手术（MITS）。传统上采用开胸手术进行的大多数主要手术都可以在视频辅助下使用较小的切口进行。机器人胸腔外科手术（RATS）是一种相关技术，它使用计算机辅助外科医生的器械控制。VATS和RATS之间的本质区别在于，使用VATS，外科医生可以握持器械，而使用RATS的情况下，外科医生可以从控制台控制器械，并不直接操纵器械，而是直接控制器械运动的各个方面。在本主题审核中，我们将使用广义的MITS来包括VATS和RATS，如果适当选择患者，MITS可提供安全，有效且成功的手术。随着技术的进步，适应症已经扩大。需要持续的结果评估，以确保与传统的开放式手术方法相比，MITS可以提供相同或更好的结果。生活质量评估，发病率和恢复时间表也是比较的重要因素。尽管目前尚无试验，但许多观察性研究表明，与开放手术相比，MITS的围手术期发病率更低，肿瘤学结果相同。对于特殊人群，例如体弱和成年患者，结果可能会更好。通常，由于设备的原因，微创手术（VATS和RATS）的围手术期费用较高。这里回顾了MITS的诊断和治疗用途，包括适应症概述，术前评估，程序，围手术期护理和手术结局。&lt;/p&gt;
 &lt;hr&gt;
@@ -802,9 +802,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>表扬批评，都挺好</title>
-      <link>/post/2020-08-01%E8%A1%A8%E6%89%AC%E6%89%B9%E8%AF%84%E9%83%BD%E6%8C%BA%E5%A5%BD/</link>
+      <link>https://surginsy.top/post/2020-08-01%E8%A1%A8%E6%89%AC%E6%89%B9%E8%AF%84%E9%83%BD%E6%8C%BA%E5%A5%BD/</link>
       <pubDate>Sat, 01 Aug 2020 19:35:00 +0000</pubDate>
-      <guid>/post/2020-08-01%E8%A1%A8%E6%89%AC%E6%89%B9%E8%AF%84%E9%83%BD%E6%8C%BA%E5%A5%BD/</guid>
+      <guid>https://surginsy.top/post/2020-08-01%E8%A1%A8%E6%89%AC%E6%89%B9%E8%AF%84%E9%83%BD%E6%8C%BA%E5%A5%BD/</guid>
       <description>&lt;h1 id=&#34;表扬批评都挺好&#34;&gt;表扬批评，都挺好&lt;/h1&gt;
 &lt;p&gt;人生路中，精彩不断，表扬，批评，都挺好。&lt;/p&gt;
 &lt;p&gt;朝气蓬勃的夏，我坐火车从北京比赛回来，捧着一只诺大的银杯，心里满是骄傲，认为父亲肯定会十分激动地表扬我一番，我的心情像阳光一样，是温柔的金色。父亲等着我，依旧是熟悉的身影，高大而挺拔，我低头望向奖杯，想着如何给父亲一个惊喜。&lt;/p&gt;
@@ -820,9 +820,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>第一次迟到</title>
-      <link>/post/2020-08-01%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BF%9F%E5%88%B0/</link>
+      <link>https://surginsy.top/post/2020-08-01%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BF%9F%E5%88%B0/</link>
       <pubDate>Sat, 01 Aug 2020 19:33:00 +0000</pubDate>
-      <guid>/post/2020-08-01%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BF%9F%E5%88%B0/</guid>
+      <guid>https://surginsy.top/post/2020-08-01%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%BF%9F%E5%88%B0/</guid>
       <description>&lt;h1 id=&#34;第一次迟到&#34;&gt;第一次迟到&lt;/h1&gt;
 &lt;p&gt;“起床啦，大懒虫！”一声震耳欲聋的叫声把我从甜美的梦中喊了过来，原来是爸爸又在发“佛门狮子吼”了，我伸个懒腰，说：“这才几点呀”，公鸡都没醒呢!”于是准备翻个身继续睡去，可是爸爸一顿死摇乱晃把我弄醒了，我扫了一眼钟，两眼顿时睁得像鸡蛋一样又大又圆，7点20分了，还有10分钟就上课了！我一个鲤鱼打挺，“扑通”一声翻下了床，迅速地穿好衣服，提好裤子，袜子呢，不管了，哎呀，就剩三分钟了。“我的鞋呢？”我用了“白虎啸”，震天动地。“谁知道你回家后扔哪了？”妈妈也抱怨这。我夹起书包，叼起面包，随便找了一双鞋子就奔向学校，我一路“筋斗云”，就连那片面包掉了也顾不上了。总算跑到了教室，当我出现在同学们和老师面前时，他们顿时笑得前仰后合，我疑惑地问：“怎么了？”一位同学说：“你快看看你的鞋！”我低头一看，原来我的左脚穿着A鞋，右脚穿着B鞋。我不好意思地低了头。老师笑着说：“迷糊大王，快回座吧！”下次不要迟到啊，我快速奔向座位，打开书包，咦？书包怎么这么轻？我一打开，哦不！书包空空如也！同学们笑得都趴到桌子底下了。我惭愧地把头低到了书桌里，恨不得钻到地缝里，我暗下决心，这是我第一次迟到，也是最后一次。&lt;/p&gt;
 </description>
@@ -830,9 +830,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>都会做的选择</title>
-      <link>/post/2020-08-01%E9%83%BD%E4%BC%9A%E5%81%9A%E7%9A%84%E9%80%89%E6%8B%A9/</link>
+      <link>https://surginsy.top/post/2020-08-01%E9%83%BD%E4%BC%9A%E5%81%9A%E7%9A%84%E9%80%89%E6%8B%A9/</link>
       <pubDate>Sat, 01 Aug 2020 19:29:00 +0000</pubDate>
-      <guid>/post/2020-08-01%E9%83%BD%E4%BC%9A%E5%81%9A%E7%9A%84%E9%80%89%E6%8B%A9/</guid>
+      <guid>https://surginsy.top/post/2020-08-01%E9%83%BD%E4%BC%9A%E5%81%9A%E7%9A%84%E9%80%89%E6%8B%A9/</guid>
       <description>&lt;h1 id=&#34;都会做的选择&#34;&gt;都会做的选择&lt;/h1&gt;
 &lt;p&gt;雾霭沉沉，北风凛凛，把人吹得生疼，今夜要变天了。&lt;/p&gt;
 &lt;p&gt;我顶着风往家赶，刚到家，窗外就飘起了雪花，我躺在床上看手机，十分惬意。
@@ -848,9 +848,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>爬山虎</title>
-      <link>/post/2020-08-01%E7%88%AC%E5%B1%B1%E8%99%8E/</link>
+      <link>https://surginsy.top/post/2020-08-01%E7%88%AC%E5%B1%B1%E8%99%8E/</link>
       <pubDate>Sat, 01 Aug 2020 19:25:00 +0000</pubDate>
-      <guid>/post/2020-08-01%E7%88%AC%E5%B1%B1%E8%99%8E/</guid>
+      <guid>https://surginsy.top/post/2020-08-01%E7%88%AC%E5%B1%B1%E8%99%8E/</guid>
       <description>&lt;h1 id=&#34;爬山虎&#34;&gt;爬山虎&lt;/h1&gt;
 &lt;p&gt;老房的东墙上，爬山虎在唱着一支生命的赞歌。&lt;/p&gt;
 &lt;p&gt;有谁见过这排山倒海般的藤条，有谁见过爬墙虎那柔弱无助的小花，，那样无声无息地开，五朵五朵，一排一排，一路一路，清幽淡雅。&lt;/p&gt;
@@ -867,9 +867,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>有你在我身后</title>
-      <link>/post/2020-08-01%E6%9C%89%E4%BD%A0%E5%9C%A8%E6%88%91%E8%BA%AB%E5%90%8E/</link>
+      <link>https://surginsy.top/post/2020-08-01%E6%9C%89%E4%BD%A0%E5%9C%A8%E6%88%91%E8%BA%AB%E5%90%8E/</link>
       <pubDate>Sat, 01 Aug 2020 19:22:00 +0000</pubDate>
-      <guid>/post/2020-08-01%E6%9C%89%E4%BD%A0%E5%9C%A8%E6%88%91%E8%BA%AB%E5%90%8E/</guid>
+      <guid>https://surginsy.top/post/2020-08-01%E6%9C%89%E4%BD%A0%E5%9C%A8%E6%88%91%E8%BA%AB%E5%90%8E/</guid>
       <description>&lt;h1 id=&#34;有你在我身后&#34;&gt;有你在我身后&lt;/h1&gt;
 &lt;p&gt;人生路中，困难不断，皆能化困难为动力，只因，身后有你。&lt;/p&gt;
 &lt;p&gt;几星期前，我在学校着凉，高烧不下。那天中午，你跨进教室，头上布满了细汗，利索地背上书包，扶着我，走出了学校，我伏在你的背上，不久便昏沉沉地睡去了。再次醒来时，已然是深夜，我躺在病床上，打着点滴，你坐在我身边，无声地观察着我头上悬挂着的点滴。见我醒来，你俯下身子从柜子里拿出一个苹果，边削边说：“睡了那么久，肯定口渴了吧，给你削个苹果。”吃着苹果，嘴上虽是甜，但心里却像涩涩的，我望向窗外的夜空，不久便昏昏睡去了。第二天一早，发现你不在身边，我急忙下床寻找。突然，临床的老爷爷对我说：“小伙子，你爸回家给你熬粥去了，他叫我告诉你一声，叫你醒来别着急，他昨晚一夜没睡，陪着你呐。”我心里五味杂陈，既有点感动，又有点心疼。不一会儿，你回来了，带着精心熬好的八宝粥，我打开保温盖子，热气扑面而来。喝着喝着，你发现我脸上出了汗，递给我一张餐巾纸，我接过去，转过身子，因为，我不想让你看见，我擦的不是汗，而是晕在眼眶已久的泪。粥的热度和温暖的阳光已把疾病彻底吹散，留下的，唯有你和那对我的爱。父亲，有你在我身后，精心照料，我在人生路上才有强健的体魄。&lt;/p&gt;
@@ -880,13 +880,13 @@ sudo systemctl restart firewalld
     
     <item>
       <title>这样的人使我敬佩</title>
-      <link>/post/2020-08-01%E8%BF%99%E6%A0%B7%E7%9A%84%E4%BA%BA%E4%BD%BF%E6%88%91%E6%95%AC%E4%BD%A9/</link>
+      <link>https://surginsy.top/post/2020-08-01%E8%BF%99%E6%A0%B7%E7%9A%84%E4%BA%BA%E4%BD%BF%E6%88%91%E6%95%AC%E4%BD%A9/</link>
       <pubDate>Sat, 01 Aug 2020 19:17:00 +0000</pubDate>
-      <guid>/post/2020-08-01%E8%BF%99%E6%A0%B7%E7%9A%84%E4%BA%BA%E4%BD%BF%E6%88%91%E6%95%AC%E4%BD%A9/</guid>
+      <guid>https://surginsy.top/post/2020-08-01%E8%BF%99%E6%A0%B7%E7%9A%84%E4%BA%BA%E4%BD%BF%E6%88%91%E6%95%AC%E4%BD%A9/</guid>
       <description>&lt;h1 id=&#34;这样的人使我敬佩&#34;&gt;这样的人使我敬佩&lt;/h1&gt;
 &lt;p&gt;漫长的人生的旅途中，我们身边总有有些人能让心湖荡起涟漪，而遇到了这样的人，他使我敬佩。&lt;/p&gt;
 &lt;p&gt;傍晚，大片乌云遮盖了天空，大雨立刻像得到指令似的，对地面发起了总攻，我连忙撑起伞，匆匆忙忙地往家赶。突然，我看见了一个人，穿着雨衣，拖着一大捆树枝迎着风雨艰难前行，时不时地停下来喘口气直直腰，然后再弓着背弯着腰继续艰难地拖。起初，我以为他只是顺手移开挡路的树枝，可是他越拖越远，丝毫没有停下来的意识。我的脚步慢了下来，腿不由自主地跟着他走，我疑惑地想，他要把这沉重的树枝拖到哪里去呢？&lt;/p&gt;
-&lt;p&gt;急骤的大雨衬得暮色更加浓重了，昏黄的路灯点亮了这被风雨肆虐的黄昏。雨帘中，他的身影显得越发的瘦弱，沧桑，佝偻的背因负重而愈加弯曲，身后的树枝扫过积水，留下道道水痕，但很快就被倾泻的雨水打乱了。他是谁？也许就是个拾荒的老头吧！我心理想着。也为自己的好奇心，兀自地跟着一个莫不相识的拾荒老头走了这么远而感到可笑。正当我加快脚步要转身时，眼角余光看见了他忽然停下来了。他慢慢地后退，带着那沉重的树枝在水中用脚一点点蹚。过了一会，他貌似蹚到了什么，弯下腰把树枝猛地扛起来，又用力插入水中，压了压，又用力摇了摇，确定牢固了才点了点头，轻拭落在脸上的雨水，用手捶了捶腰离开了，佝偻的背影消逝在雨帘中。 
+&lt;p&gt;急骤的大雨衬得暮色更加浓重了，昏黄的路灯点亮了这被风雨肆虐的黄昏。雨帘中，他的身影显得越发的瘦弱，沧桑，佝偻的背因负重而愈加弯曲，身后的树枝扫过积水，留下道道水痕，但很快就被倾泻的雨水打乱了。他是谁？也许就是个拾荒的老头吧！我心理想着。也为自己的好奇心，兀自地跟着一个莫不相识的拾荒老头走了这么远而感到可笑。正当我加快脚步要转身时，眼角余光看见了他忽然停下来了。他慢慢地后退，带着那沉重的树枝在水中用脚一点点蹚。过了一会，他貌似蹚到了什么，弯下腰把树枝猛地扛起来，又用力插入水中，压了压，又用力摇了摇，确定牢固了才点了点头，轻拭落在脸上的雨水，用手捶了捶腰离开了，佝偻的背影消逝在雨帘中。
 好奇心驱使我向那里走去，我在他蹚过的地方蹚，在我碰到树枝的一刹那，我恍然大悟，原来是一口没盖的井！夜色更浓了，我仰头一看，发现这口井旁的路灯坏了，佝偻的背影，夜，大雨，无盖的井，坏掉的路灯，这一切仿佛化作一滴小小的雨滴，落在我的心湖上，溅起道道涟漪，漾得很远，很远、、、、、、、&lt;/p&gt;
 &lt;p&gt;我刚想离开，那方才消失的身影又出现在雨中，手里还拿着一块牌子，用绳子迅速地把牌子绑在了路灯的梯子上，上面用大红漆醒目地写着“危险，请勿靠近”。昏黄的灯光衬得他的身躯如此高大，如此挺拔。顿时，敬佩之情在心湖的涟漪中油然而生。&lt;/p&gt;
 &lt;p&gt;夜吞噬了周围的一切，雨下得更大了，滂沱的大雨叩击着我的心扉，使我的心湖久久难以平静。这个陌生人的善举，传递着人间无数的温情，点亮了一盏盏湖岸的心灯，这样的人使我敬佩。&lt;/p&gt;
@@ -895,9 +895,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>你是我的一本书</title>
-      <link>/post/2020-08-01%E4%BD%A0%E6%98%AF%E6%88%91%E7%9A%84%E4%B8%80%E6%9C%AC%E4%B9%A6/</link>
+      <link>https://surginsy.top/post/2020-08-01%E4%BD%A0%E6%98%AF%E6%88%91%E7%9A%84%E4%B8%80%E6%9C%AC%E4%B9%A6/</link>
       <pubDate>Sat, 01 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-08-01%E4%BD%A0%E6%98%AF%E6%88%91%E7%9A%84%E4%B8%80%E6%9C%AC%E4%B9%A6/</guid>
+      <guid>https://surginsy.top/post/2020-08-01%E4%BD%A0%E6%98%AF%E6%88%91%E7%9A%84%E4%B8%80%E6%9C%AC%E4%B9%A6/</guid>
       <description>&lt;h1 id=&#34;你是我的一本书&#34;&gt;你是我的一本书&lt;/h1&gt;
 &lt;hr&gt;
 &lt;p&gt;傍晚，大片乌云遮盖了天空，大雨像得到命令似的，对地面发起了总攻。我撑起伞，匆匆忙忙地往家赶。突然，我看见了一个人，穿着雨衣，拖着一大捆树枝迎着风雨艰难前行，时不时地停下来喘口气，直直腰，然后再弓背弯腰继续艰难地前行。起初，我以为他只是顺手移开挡路的树枝，可他越拖越远，丝毫没有停下的意思。我的脚步慢了下来，腿不由自主地跟着他走，疑惑地想：他要把这沉重的树枝拖到哪里呢？&lt;/p&gt;
@@ -910,9 +910,9 @@ sudo systemctl restart firewalld
     
     <item>
       <title>第四代谷歌网盘Clone术：Fclone</title>
-      <link>/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/</link>
+      <link>https://surginsy.top/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/</guid>
+      <guid>https://surginsy.top/post/2020-07-18%E7%AC%AC%E5%9B%9B%E4%BB%A3%E8%B0%B7%E6%AD%8C%E7%BD%91%E7%9B%98clone%E6%9C%AFfclone/</guid>
       <description>&lt;h1 id=&#34;第四代谷歌网盘clone术fclone&#34;&gt;第四代谷歌网盘Clone术：Fclone&lt;/h1&gt;
 &lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;Fclone是目前最新最强的Rclone衍生产品
@@ -1039,9 +1039,9 @@ chmod +x /usr/bin/fclone
     
     <item>
       <title>胰十二指肠切除术</title>
-      <link>/post/2020-06-13%E8%83%B0%E5%8D%81%E4%BA%8C%E6%8C%87%E8%82%A0%E5%88%87%E9%99%A4/</link>
+      <link>https://surginsy.top/post/2020-06-13%E8%83%B0%E5%8D%81%E4%BA%8C%E6%8C%87%E8%82%A0%E5%88%87%E9%99%A4/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-06-13%E8%83%B0%E5%8D%81%E4%BA%8C%E6%8C%87%E8%82%A0%E5%88%87%E9%99%A4/</guid>
+      <guid>https://surginsy.top/post/2020-06-13%E8%83%B0%E5%8D%81%E4%BA%8C%E6%8C%87%E8%82%A0%E5%88%87%E9%99%A4/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;胰头切除主要用于肿瘤，需要同时行十二指肠切除术。通常用胰十二指肠切除术可以完成该手术，也可以执行该手术来管理胰腺或十二指肠创伤和慢性胰腺炎。&lt;/p&gt;
 &lt;p&gt;胰十二指肠切除术是一种复杂的高风险外科手术。在大容量医疗中心已证明最低的手术死亡率和最佳的长期癌症结局。在经验丰富的手中，Whipple手术的中位手术时间为5.5小时，中位失血量为350 mL，死亡率不到4％。&lt;/p&gt;
@@ -2038,7 +2038,7 @@ g）。手术前下午和晚上约10个小时，应以三剂口服方案。与�
 在将肿瘤摘除导管系统的患者进行摘除术之前，术前放置胰导管支架可以帮助外科医生避免导管损伤，并在发生严重导管破坏时对其进行识别。去核技术在其他地方有描述。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;姑息手术&#34;&gt;姑息手术&lt;/h3&gt;
-&lt;p&gt;如果在分期腹腔镜检查过程中或尝试进行胰十二指肠切除术期间发现患者患有无法切除的疾病，并且不建议降低阶段性的新辅助治疗（例如，肝或腹膜转移，非常广泛的局部疾病和完全的大血管闭塞等），可以进行外科胆道和胃旁路手术。 
+&lt;p&gt;如果在分期腹腔镜检查过程中或尝试进行胰十二指肠切除术期间发现患者患有无法切除的疾病，并且不建议降低阶段性的新辅助治疗（例如，肝或腹膜转移，非常广泛的局部疾病和完全的大血管闭塞等），可以进行外科胆道和胃旁路手术。
 对于大多数可能存活超过三个月的患者，也应进行预防性胃前空肠吻合术。它不会增加手术的发病率。
 胆道搭桥术（胆囊或胆总管空肠吻合术）可有效缓解胆道梗阻并消除后续胆道支架的需要。如果将胆囊用于减压，则外科医生应确定胆囊管是开放的，并且在其生长时不太可能被肿瘤阻塞。
 另外，在经验丰富的中心，内镜下胆道阻塞的缓解是另一种侵入性较小但同样有效的选择。内镜治疗恶性胰胆管阻塞的细节在其他地方讨论。&lt;/p&gt;
@@ -2222,9 +2222,9 @@ g）。手术前下午和晚上约10个小时，应以三剂口服方案。与�
     
     <item>
       <title>肝胆管结石病胆肠吻合术应用专家共识</title>
-      <link>/post/2020-06-10%E8%83%86%E9%81%93/</link>
+      <link>https://surginsy.top/post/2020-06-10%E8%83%86%E9%81%93/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-06-10%E8%83%86%E9%81%93/</guid>
+      <guid>https://surginsy.top/post/2020-06-10%E8%83%86%E9%81%93/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;推荐意见&#34;&gt;推荐意见&lt;/h2&gt;
 &lt;p&gt;１：胆肠吻合术是肝胆管结石病外科 治疗的主要手术方式之一，目前以胆管空肠 Ｒｏｕｘ⁃ ｅｎ⁃Ｙ 吻合和改良胆管空肠襻式吻合术为主。&lt;/p&gt;
@@ -2249,9 +2249,9 @@ g）。手术前下午和晚上约10个小时，应以三剂口服方案。与�
     
     <item>
       <title>markdown语言学习测试</title>
-      <link>/post/2020-05-31-2/</link>
+      <link>https://surginsy.top/post/2020-05-31-2/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-05-31-2/</guid>
+      <guid>https://surginsy.top/post/2020-05-31-2/</guid>
       <description>&lt;h1 id=&#34;markdown语言学习测试&#34;&gt;markdown语言学习测试&lt;/h1&gt;
 &lt;h2 id=&#34;markdown&#34;&gt;markdown&lt;/h2&gt;
 &lt;h3 id=&#34;medsy&#34;&gt;medsy&lt;/h3&gt;
@@ -2330,9 +2330,9 @@ g）。手术前下午和晚上约10个小时，应以三剂口服方案。与�
     
     <item>
       <title>测试</title>
-      <link>/post/2020-05-31/</link>
+      <link>https://surginsy.top/post/2020-05-31/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/2020-05-31/</guid>
+      <guid>https://surginsy.top/post/2020-05-31/</guid>
       <description>&lt;p&gt;如果您对Git充满信心，请按照上述“ 使用Git安装”中的说明进行操作，否则，请 按照“ 使用ZIP安装”进行操作。&lt;/p&gt;
 &lt;p&gt;跳过“ 安装Hugo”步骤，因为我们将使用RStudio安装Hugo
 打开 RStudio，安装Blogdown和Hugo依赖项：&lt;/p&gt;
@@ -2341,9 +2341,9 @@ g）。手术前下午和晚上约10个小时，应以三剂口服方案。与�
     
     <item>
       <title>Slides</title>
-      <link>/slides/example/</link>
+      <link>https://surginsy.top/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>/slides/example/</guid>
+      <guid>https://surginsy.top/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://owchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -2470,27 +2470,27 @@ Three
     
     <item>
       <title>Privacy Policy</title>
-      <link>/privacy/</link>
+      <link>https://surginsy.top/privacy/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/privacy/</guid>
+      <guid>https://surginsy.top/privacy/</guid>
       <description>&lt;p&gt;Add your privacy policy here and set &lt;code&gt;draft: false&lt;/code&gt; to publish it. Otherwise, delete this file if you don&amp;rsquo;t need it.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Terms</title>
-      <link>/terms/</link>
+      <link>https://surginsy.top/terms/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/terms/</guid>
+      <guid>https://surginsy.top/terms/</guid>
       <description>&lt;p&gt;Add your terms here and set &lt;code&gt;draft: false&lt;/code&gt; to publish it. Otherwise, delete this file if you don&amp;rsquo;t need it.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Example Project</title>
-      <link>/project/example/</link>
+      <link>https://surginsy.top/project/example/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/project/example/</guid>
+      <guid>https://surginsy.top/project/example/</guid>
       <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
 &lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
 &lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
@@ -2501,9 +2501,9 @@ Three
     
     <item>
       <title>An example conference paper</title>
-      <link>/publication/example/</link>
+      <link>https://surginsy.top/publication/example/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>/publication/example/</guid>
+      <guid>https://surginsy.top/publication/example/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -2520,9 +2520,9 @@ Three
     
     <item>
       <title></title>
-      <link>/admin/config.yml</link>
+      <link>https://surginsy.top/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/admin/config.yml</guid>
+      <guid>https://surginsy.top/admin/config.yml</guid>
       <description></description>
     </item>
     

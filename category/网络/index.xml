@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>网络 | Academic</title>
-    <link>/category/%E7%BD%91%E7%BB%9C/</link>
-      <atom:link href="/category/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <title>网络 | bushqin的博客</title>
+    <link>https://surginsy.top/category/%E7%BD%91%E7%BB%9C/</link>
+      <atom:link href="https://surginsy.top/category/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     <description>网络</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 22 Apr 2021 18:12:43 +0800</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Thu, 22 Apr 2021 18:12:43 +0800</lastBuildDate>
     <image>
-      <url>/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
       <title>网络</title>
-      <link>/category/%E7%BD%91%E7%BB%9C/</link>
+      <link>https://surginsy.top/category/%E7%BD%91%E7%BB%9C/</link>
     </image>
     
     <item>
       <title>2021-04-22hugo生成博客托管在github使用cloudflare page发布</title>
-      <link>/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</link>
+      <link>https://surginsy.top/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</link>
       <pubDate>Thu, 22 Apr 2021 18:12:43 +0800</pubDate>
-      <guid>/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</guid>
+      <guid>https://surginsy.top/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;   作为一个非专业的小白，非常希望自己能有机会机会搭建一个自己的博客，wordpress虽然有现成的可以租用，免维护，但是，还是希望把所有的控制权都把握在自己手里，最终，通过hugo生成博客，生成了html静态网页，存放在github上，可以使用gitpage发布，如果想添加自己的域名可以使用cloudflare page 发布。&lt;/p&gt;
 &lt;h2 id=&#34;hugo-安装--更新&#34;&gt;Hugo 安装 / 更新&lt;/h2&gt;
@@ -53,7 +53,7 @@ hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，�
 &lt;p&gt;将 hugo 命令生成的 public 文件夹上传到 GitHub pages 项目下。&lt;/p&gt;
 &lt;p&gt;public 文件夹相当于编译完成的静态网站，你在本地打开其实就能看。换句话说，你每次手动将这个目录下的内容上传到你的 GitHub page 项目也是可以的。&lt;/p&gt;
 &lt;p&gt;然后为了达到这个目的，Academic 给出的做法是利用 git submodule 将你的 GitHub page 项目作为 My_Website 项目的子模块存放到 public 目录。那么当你更新你的文章之后，只提交 public 文件夹内的变更到 GitHub page 项目即可。
-&lt;img src=&#34;/image/1.png&#34; alt=&#34;images&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://surginsy.top/image/1.png&#34; alt=&#34;images&#34;&gt;&lt;/p&gt;
 &lt;p&gt;官方教程 (缩减版)
 原教程 看这里；&lt;/p&gt;
 &lt;p&gt;在 GitHub 上创建两个项目，一个是 fork 的 academic-kickstart，也就是你前面 clone 到本地的 My_Website，另一个即是以你用户名 / 组织名开头、以 .github.io 结尾的 GitHub page 项目。&lt;/p&gt;
