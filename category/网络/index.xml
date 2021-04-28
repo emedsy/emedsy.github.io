@@ -82,6 +82,10 @@ git add .
 git commit -m &amp;quot;git submodule updated&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这样，子模块里边的和仓库是同步的&lt;/p&gt;
+&lt;p&gt;如果在其他机器想编辑博客&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull
+git merge
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
