@@ -33,6 +33,27 @@
     </item>
     
     <item>
+      <title>2021 04 29hugo的academic Themes的使用问题</title>
+      <link>https://surginsy.top/post/2021-04-29hugo%E7%9A%84academic-themes%E7%9A%84%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 29 Apr 2021 19:52:08 +0800</pubDate>
+      <guid>https://surginsy.top/post/2021-04-29hugo%E7%9A%84academic-themes%E7%9A%84%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h2 id=&#34;hugo的academic-themes的使用问题&#34;&gt;hugo的academic Themes的使用问题&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;alert alert-note&amp;quot;&amp;gt;
+  &amp;lt;div&amp;gt;
+    A Markdown callout is useful for displaying notices, hints, or definitions to your readers.
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    A Markdown callout is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2021-04-22hugo生成博客托管在github使用cloudflare page发布</title>
       <link>https://surginsy.top/post/2021-04-22hugo%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%9C%A8github%E4%BD%BF%E7%94%A8cloudflare%E5%8F%91%E5%B8%83/</link>
       <pubDate>Thu, 22 Apr 2021 18:12:43 +0800</pubDate>
@@ -2508,7 +2529,7 @@ Three
       <link>https://surginsy.top/publication/example/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
       <guid>https://surginsy.top/publication/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+      <description>&lt;div class=&#34;alert alert-warning&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
   &lt;/div&gt;
