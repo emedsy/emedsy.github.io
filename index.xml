@@ -33,6 +33,62 @@
     </item>
     
     <item>
+      <title>2021 04 30snap生成shadowsocks-libev</title>
+      <link>https://surginsy.top/post/2021-04-30snap/</link>
+      <pubDate>Fri, 30 Apr 2021 10:41:37 +0800</pubDate>
+      <guid>https://surginsy.top/post/2021-04-30snap/</guid>
+      <description>&lt;h2 id=&#34;安装snap应用商店&#34;&gt;安装Snap应用商店&lt;/h2&gt;
+&lt;p&gt;通过Snap应用商店安装Shadowsocks-libev是官方推荐的方式, debian:9&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt update
+sudo apt install snapd -y
+sudo snap install core
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;安装-ss-libev-开发版&#34;&gt;安装 ss-libev 开发版&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo snap install shadowsocks-libev --classic --edge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;配置-ss&#34;&gt;配置 ss&lt;/h2&gt;
+&lt;p&gt;配置文件 config.json 一定要放在 /snap/bin/ 中, 也可以放在 /root 根目录下&lt;/p&gt;
+&lt;p&gt;配置文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;server&amp;quot;: &amp;quot;0.0.0.0&amp;quot;,
+  &amp;quot;nameserver&amp;quot;: &amp;quot;8.8.8.8&amp;quot;,
+  &amp;quot;server_port&amp;quot;: 443,
+  &amp;quot;password&amp;quot;: &amp;quot;你的密码&amp;quot;,
+  &amp;quot;method&amp;quot;: &amp;quot;chacha20-ietf-poly1305&amp;quot;,
+  &amp;quot;timeout&amp;quot;: 600,
+  &amp;quot;no_delay&amp;quot;: true,
+  &amp;quot;mode&amp;quot;: &amp;quot;tcp_only&amp;quot;,
+  # 可以省略&amp;quot;plugin&amp;quot;: &amp;quot;v2ray-plugin&amp;quot;,
+  # 可以省略&amp;quot;plugin_opts&amp;quot;: &amp;quot;server;tls;fast-open;host=xxxxxxx.com;cert=/证书目录/fullchain.cer;key=/证书目录/xxxxxxx.com.key;loglevel=none&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意，你需要把里面的ExamplePassword替换成一个更强的密码。 强密码有助缓解最新发现的针对Shadowsocks服务器的Partitioning Oracle攻击。 你可以用以下命令在终端生成一个强密码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt install openssl
+openssl rand -base64 16
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;snap 启动的 ss 的命令 (开机自启文件)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /etc/systemd/system/
+touch ss.service
+vi ss.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[Unit]
+Description=Shadowsocks Server
+After=network.target
+[Service]
+Restart=on-abnormal
+ExecStart=/snap/bin/shadowsocks-libev.ss-server -c /snap/bin/config.json
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;就是 ss-server 变成了 shadowsocks-libev.ss-server ； 然后就是配置文件存放的目录变了&lt;/p&gt;
+&lt;p&gt;systemctl enable ss
+systemctl start ss
+systemctl status ss&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2021 04 29hugo的academic Themes的使用问题</title>
       <link>https://surginsy.top/post/2021-04-29hugo%E7%9A%84academic-themes%E7%9A%84%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</link>
       <pubDate>Thu, 29 Apr 2021 19:52:08 +0800</pubDate>
@@ -911,7 +967,7 @@ sudo systemctl restart firewalld
       <description>&lt;h1 id=&#34;这样的人使我敬佩&#34;&gt;这样的人使我敬佩&lt;/h1&gt;
 &lt;p&gt;漫长的人生的旅途中，我们身边总有有些人能让心湖荡起涟漪，而遇到了这样的人，他使我敬佩。&lt;/p&gt;
 &lt;p&gt;傍晚，大片乌云遮盖了天空，大雨立刻像得到指令似的，对地面发起了总攻，我连忙撑起伞，匆匆忙忙地往家赶。突然，我看见了一个人，穿着雨衣，拖着一大捆树枝迎着风雨艰难前行，时不时地停下来喘口气直直腰，然后再弓着背弯着腰继续艰难地拖。起初，我以为他只是顺手移开挡路的树枝，可是他越拖越远，丝毫没有停下来的意识。我的脚步慢了下来，腿不由自主地跟着他走，我疑惑地想，他要把这沉重的树枝拖到哪里去呢？&lt;/p&gt;
-&lt;p&gt;急骤的大雨衬得暮色更加浓重了，昏黄的路灯点亮了这被风雨肆虐的黄昏。雨帘中，他的身影显得越发的瘦弱，沧桑，佝偻的背因负重而愈加弯曲，身后的树枝扫过积水，留下道道水痕，但很快就被倾泻的雨水打乱了。他是谁？也许就是个拾荒的老头吧！我心理想着。也为自己的好奇心，兀自地跟着一个莫不相识的拾荒老头走了这么远而感到可笑。正当我加快脚步要转身时，眼角余光看见了他忽然停下来了。他慢慢地后退，带着那沉重的树枝在水中用脚一点点蹚。过了一会，他貌似蹚到了什么，弯下腰把树枝猛地扛起来，又用力插入水中，压了压，又用力摇了摇，确定牢固了才点了点头，轻拭落在脸上的雨水，用手捶了捶腰离开了，佝偻的背影消逝在雨帘中。
+&lt;p&gt;急骤的大雨衬得暮色更加浓重了，昏黄的路灯点亮了这被风雨肆虐的黄昏。雨帘中，他的身影显得越发的瘦弱，沧桑，佝偻的背因负重而愈加弯曲，身后的树枝扫过积水，留下道道水痕，但很快就被倾泻的雨水打乱了。他是谁？也许就是个拾荒的老头吧！我心理想着。也为自己的好奇心，兀自地跟着一个莫不相识的拾荒老头走了这么远而感到可笑。正当我加快脚步要转身时，眼角余光看见了他忽然停下来了。他慢慢地后退，带着那沉重的树枝在水中用脚一点点蹚。过了一会，他貌似蹚到了什么，弯下腰把树枝猛地扛起来，又用力插入水中，压了压，又用力摇了摇，确定牢固了才点了点头，轻拭落在脸上的雨水，用手捶了捶腰离开了，佝偻的背影消逝在雨帘中。 
 好奇心驱使我向那里走去，我在他蹚过的地方蹚，在我碰到树枝的一刹那，我恍然大悟，原来是一口没盖的井！夜色更浓了，我仰头一看，发现这口井旁的路灯坏了，佝偻的背影，夜，大雨，无盖的井，坏掉的路灯，这一切仿佛化作一滴小小的雨滴，落在我的心湖上，溅起道道涟漪，漾得很远，很远、、、、、、、&lt;/p&gt;
 &lt;p&gt;我刚想离开，那方才消失的身影又出现在雨中，手里还拿着一块牌子，用绳子迅速地把牌子绑在了路灯的梯子上，上面用大红漆醒目地写着“危险，请勿靠近”。昏黄的灯光衬得他的身躯如此高大，如此挺拔。顿时，敬佩之情在心湖的涟漪中油然而生。&lt;/p&gt;
 &lt;p&gt;夜吞噬了周围的一切，雨下得更大了，滂沱的大雨叩击着我的心扉，使我的心湖久久难以平静。这个陌生人的善举，传递着人间无数的温情，点亮了一盏盏湖岸的心灯，这样的人使我敬佩。&lt;/p&gt;
@@ -2063,7 +2119,7 @@ g）。手术前下午和晚上约10个小时，应以三剂口服方案。与�
 在将肿瘤摘除导管系统的患者进行摘除术之前，术前放置胰导管支架可以帮助外科医生避免导管损伤，并在发生严重导管破坏时对其进行识别。去核技术在其他地方有描述。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;姑息手术&#34;&gt;姑息手术&lt;/h3&gt;
-&lt;p&gt;如果在分期腹腔镜检查过程中或尝试进行胰十二指肠切除术期间发现患者患有无法切除的疾病，并且不建议降低阶段性的新辅助治疗（例如，肝或腹膜转移，非常广泛的局部疾病和完全的大血管闭塞等），可以进行外科胆道和胃旁路手术。
+&lt;p&gt;如果在分期腹腔镜检查过程中或尝试进行胰十二指肠切除术期间发现患者患有无法切除的疾病，并且不建议降低阶段性的新辅助治疗（例如，肝或腹膜转移，非常广泛的局部疾病和完全的大血管闭塞等），可以进行外科胆道和胃旁路手术。 
 对于大多数可能存活超过三个月的患者，也应进行预防性胃前空肠吻合术。它不会增加手术的发病率。
 胆道搭桥术（胆囊或胆总管空肠吻合术）可有效缓解胆道梗阻并消除后续胆道支架的需要。如果将胆囊用于减压，则外科医生应确定胆囊管是开放的，并且在其生长时不太可能被肿瘤阻塞。
 另外，在经验丰富的中心，内镜下胆道阻塞的缓解是另一种侵入性较小但同样有效的选择。内镜治疗恶性胰胆管阻塞的细节在其他地方讨论。&lt;/p&gt;
