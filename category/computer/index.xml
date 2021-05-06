@@ -17,22 +17,36 @@
       <link>https://surginsy.top/post/2020-05-31-2/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       <guid>https://surginsy.top/post/2020-05-31-2/</guid>
-      <description>&lt;h1 id=&#34;markdown语言学习测试&#34;&gt;markdown语言学习测试&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#markdown%e7%9a%84%e9%94%9a%e7%82%b9&#34;&gt;markdown的锚点&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%e9%93%be%e6%8e%a5&#34;&gt;链接&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#markdown%e7%9a%84%e6%a0%87%e9%a2%98%e6%a0%bc%e5%bc%8f&#34;&gt;markdown的标题格式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%e4%bb%a3%e7%a0%81%e5%9d%97%e9%83%a8%e5%88%86%e5%ad%a6%e4%b9%a0&#34;&gt;代码块部分学习&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%e5%88%97%e8%a1%a8%e8%81%94%e7%b3%bb%e5%92%8c%e5%ad%97%e4%bd%93%e5%8f%98%e5%8c%96&#34;&gt;列表联系和字体变化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%e5%9b%be%e5%ba%8a%e5%9b%be%e7%89%87%e7%9a%84%e6%8f%92%e5%85%a5&#34;&gt;图床图片的插入&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[显示内容][参考连接link]
+[link]:链接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;markdown的标题格式&#34;&gt;markdown的标题格式&lt;/h3&gt;
+&lt;h1 id=&#34;markdown语言学习测试&#34;&gt;markdown语言学习测试&lt;/h1&gt;
 &lt;h2 id=&#34;markdown&#34;&gt;markdown&lt;/h2&gt;
 &lt;h3 id=&#34;medsy&#34;&gt;medsy&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;# markdown语言学习测试
-## markdown 
+## markdown
 ### medsy
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;正文部分内容，直接输入就可以了&lt;/p&gt;
-&lt;p&gt;其他的内容我们继续使用&lt;/p&gt;
-&lt;p&gt;代码块部分学习&lt;/p&gt;
+&lt;p&gt;其他的内容我们继续使用
+&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;目录&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;代码块部分学习&#34;&gt;代码块部分学习&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;```ipconfig ip```
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;ipconfig ip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;正文中的代码 &lt;code&gt;ls -a&lt;/code&gt;来表示&lt;/p&gt;
-&lt;p&gt;列表联系&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;目录&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;列表联系和字体变化&#34;&gt;列表联系和字体变化&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;1. diyi jianshi
 2. dier jianshi
    1. 2344343
@@ -43,10 +57,11 @@
 
  无序列表
  - 123
-   - 12345 
+   - 12345
         - 123434
             - 2334343444
-            - 566756757 
+            - 566756757
+
 
  **加粗**
  *倾斜*
@@ -85,11 +100,27 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;加粗&lt;/strong&gt;
 &lt;em&gt;倾斜&lt;/em&gt;
-&lt;em&gt;&lt;strong&gt;加粗倾斜&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;em&gt;&lt;strong&gt;加粗倾斜&lt;/strong&gt;&lt;/em&gt;       &lt;br&gt;
+&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;目录&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;图床图片的插入&#34;&gt;图床图片的插入&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;![avatar](https://d10z4n4qou5ghj.cloudfront.net/%E6%88%AA%E5%B1%8F2020-05-31%20%E4%B8%8B%E5%8D%886.15.06.png)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://d10z4n4qou5ghj.cloudfront.net/%E6%88%AA%E5%B1%8F2020-05-31%20%E4%B8%8B%E5%8D%886.15.06.png&#34; alt=&#34;avatar&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;目录&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;markdown的锚点&#34;&gt;markdown的锚点&lt;/h3&gt;
+&lt;p&gt;markdown中的标题可以作为链接来实现跳转，具体用法就是：
+这种用法适用于各级标题，注意，这里的#可不是一级标题的#，即便是三级四级标题，使用时也只需要一个#就可以了。比如我现在想跳到文章的前言部分，可以这样实现&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[显示内容](#标题)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;目录&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;链接&#34;&gt;链接&lt;/h3&gt;
+&lt;p&gt;markdown支持两种链接形式，一种是&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[显示内容](对应的连接)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[显示内容][参考连接link]
+[link]:链接
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;目录&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
