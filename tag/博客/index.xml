@@ -18,26 +18,12 @@
       <pubDate>Fri, 07 May 2021 14:21:53 +0800</pubDate>
       <guid>https://surginsy.top/post/2021-05-07academic%E4%B8%BB%E9%A2%98%E5%BA%94%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;#%e7%bc%96%e8%be%91%e6%82%a8%e7%9a%84%e7%bd%91%e7%ab%99&#34;&gt;编辑您的网站&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;#%e9%80%89%e6%8b%a9%e9%80%82%e5%90%88%e6%82%a8%e7%9a%84%e9%a2%9c%e8%89%b2%e4%b8%bb%e9%a2%98&#34;&gt;选择适合您的颜色主题&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;#%e9%80%89%e6%8b%a9%e9%80%82%e5%90%88%e6%82%a8%e7%9a%84%e5%b8%83%e5%b1%80&#34;&gt;选择适合您的布局&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;#%e8%87%aa%e8%ae%a2&#34;&gt;自订&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;#%e8%87%aa%e6%88%91%e4%bb%8b%e7%bb%8d&#34;&gt;自我介绍&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;#%e8%8f%9c%e5%8d%95&#34;&gt;菜单&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;1-编辑您的网站编辑您的网站&#34;&gt;1. &lt;a href=&#34;#%e7%bc%96%e8%be%91%e6%82%a8%e7%9a%84%e7%bd%91%e7%ab%99&#34;&gt;编辑您的网站&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;1.1. &lt;a href=&#34;#%e9%80%89%e6%8b%a9%e9%80%82%e5%90%88%e6%82%a8%e7%9a%84%e9%a2%9c%e8%89%b2%e4%b8%bb%e9%a2%98&#34;&gt;选择适合您的颜色主题&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1.2. &lt;a href=&#34;#%e9%80%89%e6%8b%a9%e9%80%82%e5%90%88%e6%82%a8%e7%9a%84%e5%b8%83%e5%b1%80&#34;&gt;选择适合您的布局&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1.3. &lt;a href=&#34;#%e8%87%aa%e8%ae%a2&#34;&gt;自订&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1.4. &lt;a href=&#34;#%e8%87%aa%e6%88%91%e4%bb%8b%e7%bb%8d&#34;&gt;自我介绍&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;1.5. &lt;a href=&#34;#%e8%8f%9c%e5%8d%95&#34;&gt;菜单&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;编辑您的网站&#34;&gt;编辑您的网站&lt;/h3&gt;
 &lt;h4 id=&#34;选择适合您的颜色主题&#34;&gt;选择适合您的颜色主题&lt;/h4&gt;
 &lt;p&gt;查看颜色主题，并尽享选择自己喜欢的风格的乐趣。&lt;/p&gt;
@@ -77,7 +63,7 @@
     如果您的content/home/文件夹为空，请从示例站点填充它
   &lt;/div&gt;
 &lt;/div&gt;
-[返回目录](#目录)
+&lt;p&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;返回目录&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;自订&#34;&gt;自订&lt;/h3&gt;
 &lt;p&gt;选择主题和布局后，使其成为自己的主题。&lt;/p&gt;
 &lt;p&gt;核心参数
@@ -125,7 +111,7 @@ LaTeX数学与math = true
     如果更改用户名，则可能希望从author“关于”窗口小部件（content/home/about.md）的authors字段以及引用该用户的任何页面的开头的字段中更新对该用户名的任何引用。
   &lt;/div&gt;
 &lt;/div&gt;
-[返回目录](#目录)
+&lt;p&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;返回目录&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&#34;菜单&#34;&gt;菜单&lt;/h4&gt;
 &lt;p&gt;可以在config/_default/menu.toml文件中编辑导航菜单：&lt;/p&gt;
 &lt;p&gt;这些[[main]]条目定义了网站顶部的导航链接。根据您在上面选择的布局，可以根据需要添加或删除它们。&lt;/p&gt;
@@ -140,6 +126,7 @@ LaTeX数学与math = true
 请参阅我们的内容管理指南，以创建自己的内容，例如博客文章，出版物，在线课程，讲座和项目等。&lt;/p&gt;
 &lt;p&gt;删除所有未使用的示例页面
 通过删除示例模板中剩余的所有未使用的页面来整理您的网站。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34;&gt;返回目录&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
