@@ -33,6 +33,17 @@
     </item>
     
     <item>
+      <title>hugo book 设置练习</title>
+      <link>https://surginsy.top/publication/hugo_publication%E9%83%A8%E5%88%86%E8%AE%B0%E5%BD%95/page1/</link>
+      <pubDate>Sun, 30 May 2021 20:56:15 +0800</pubDate>
+      <guid>https://surginsy.top/publication/hugo_publication%E9%83%A8%E5%88%86%E8%AE%B0%E5%BD%95/page1/</guid>
+      <description>&lt;pre&gt;&lt;code&gt;hugo new publication/hugo_publication部分记录/page1/page1.md
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2021 05 15debian下安装pacs服务器记录及尝试</title>
       <link>https://surginsy.top/post/2021-05-15debian%E4%B8%8B%E5%AE%89%E8%A3%85pacs%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%B0%E5%BD%95%E5%8F%8A%E5%B0%9D%E8%AF%95/</link>
       <pubDate>Sat, 15 May 2021 18:49:08 +0800</pubDate>
@@ -467,6 +478,8 @@ systemctl status ss&lt;/p&gt;
     A Markdown callout is useful for displaying notices, hints, or definitions to your readers.
   &lt;/div&gt;
 &lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;hugo new post/2021-05-15debian下安装pacs服务器记录及尝试/index.md
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
