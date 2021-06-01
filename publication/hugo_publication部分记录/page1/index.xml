@@ -14,9 +14,9 @@
     
     <item>
       <title>hugo book 设置练习</title>
-      <link>https://surginsy.top/publication/hugo_publication%E9%83%A8%E5%88%86%E8%AE%B0%E5%BD%95/page1/</link>
+      <link>https://surginsy.top/publication/hugo_publication%E9%83%A8%E5%88%86%E8%AE%B0%E5%BD%95/page1/page1/</link>
       <pubDate>Sun, 30 May 2021 20:56:15 +0800</pubDate>
-      <guid>https://surginsy.top/publication/hugo_publication%E9%83%A8%E5%88%86%E8%AE%B0%E5%BD%95/page1/</guid>
+      <guid>https://surginsy.top/publication/hugo_publication%E9%83%A8%E5%88%86%E8%AE%B0%E5%BD%95/page1/page1/</guid>
       <description>&lt;pre&gt;&lt;code&gt;hugo new publication/hugo_publication部分记录/page1/page1.md
 
 &lt;/code&gt;&lt;/pre&gt;
