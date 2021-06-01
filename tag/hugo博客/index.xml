@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo，博客 | bushqin的博客</title>
+    <link>https://surginsy.top/tag/hugo%E5%8D%9A%E5%AE%A2/</link>
+      <atom:link href="https://surginsy.top/tag/hugo%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <description>hugo，博客</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Tue, 01 Jun 2021 15:51:12 +0800</lastBuildDate>
+    <image>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
+      <title>hugo，博客</title>
+      <link>https://surginsy.top/tag/hugo%E5%8D%9A%E5%AE%A2/</link>
+    </image>
+    
+    <item>
+      <title>2021 06 01hugo基本命令应用及utterances评论的添加</title>
+      <link>https://surginsy.top/post/2021-06-01hugo%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%BA%94%E7%94%A8%E5%8F%8A%E8%AF%84%E8%AE%BA%E7%9A%84%E6%B7%BB%E5%8A%A0/</link>
+      <pubDate>Tue, 01 Jun 2021 15:51:12 +0800</pubDate>
+      <guid>https://surginsy.top/post/2021-06-01hugo%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%BA%94%E7%94%A8%E5%8F%8A%E8%AF%84%E8%AE%BA%E7%9A%84%E6%B7%BB%E5%8A%A0/</guid>
+      <description>&lt;h2 id=&#34;基本的hugo的博文生成命令&#34;&gt;基本的hugo的博文生成命令&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;D:\blog\starter-academic&amp;gt;hugo new post/2021-06-01hugo基本命令应用及评论的添加/index.md
+D:\blog\starter-academic\content\post\2021-06-01hugo基本命令应用及评论的添加\index.md created
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;目前，hugo academic的主题，官方支持disqus，twitter，commento，三个评论系统。可以在
+&lt;em&gt;&lt;strong&gt;config/_default/params.yaml&lt;/strong&gt;&lt;/em&gt;
+文件中更改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;comments:
+
+  provider: &#39;&#39;
+  commentable:
+    post: true
+    book: true
+    project: true
+    publication: true
+    event: true
+  disqus:
+    shortname: &#39;&#39;
+    show_count: false
+  commento:
+    url: &#39;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是，上述三种有的需要fq，有的需要收费，对于我不太适合。根据网上教程尝试了utterances评论。暂时可以使用。&lt;/p&gt;
+&lt;h2 id=&#34;安装utterances&#34;&gt;安装utterances&lt;/h2&gt;
+&lt;p&gt;utterances是一款基于Github Issue的Github工具,优点主要是无广告、加载快、配置简单，轻量开源!&lt;/p&gt;
+&lt;p&gt;由于utterances是一款Github App，因此安装utterances非常简单，只需要授权特定repo权限给utterances就可以了,注意一个点：授权的这个repo必须是public的，可以选择多个repo，但是建议选择一个就可以了，也比较安全。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/apps/utterances&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/apps/utterances&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
