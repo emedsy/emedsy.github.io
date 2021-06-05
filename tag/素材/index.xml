@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Publications | bushqin的博客</title>
-    <link>https://surginsy.top/publication/</link>
-      <atom:link href="https://surginsy.top/publication/index.xml" rel="self" type="application/rss+xml" />
-    <description>Publications</description>
+    <title>素材 | bushqin的博客</title>
+    <link>https://surginsy.top/tag/%E7%B4%A0%E6%9D%90/</link>
+      <atom:link href="https://surginsy.top/tag/%E7%B4%A0%E6%9D%90/index.xml" rel="self" type="application/rss+xml" />
+    <description>素材</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Sat, 05 Jun 2021 21:15:28 +0800</lastBuildDate>
     <image>
       <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
-      <title>Publications</title>
-      <link>https://surginsy.top/publication/</link>
+      <title>素材</title>
+      <link>https://surginsy.top/tag/%E7%B4%A0%E6%9D%90/</link>
     </image>
     
     <item>
@@ -23,25 +23,6 @@
 &lt;pre&gt;&lt;code&gt;&amp;lt;iframe src=&amp;quot;//player.bilibili.com/player.html?aid=205904730&amp;amp;bvid=BV1fh411Y7nH&amp;amp;cid=349353518&amp;amp;page=1&amp;quot; scrolling=&amp;quot;no&amp;quot; border=&amp;quot;0&amp;quot; frameborder=&amp;quot;no&amp;quot; framespacing=&amp;quot;0&amp;quot; allowfullscreen=&amp;quot;true&amp;quot;&amp;gt; &amp;lt;/iframe&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&#34;//player.bilibili.com/player.html?aid=205904730&amp;bvid=BV1fh411Y7nH&amp;cid=349353518&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34;&gt; &lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>An example conference paper</title>
-      <link>https://surginsy.top/publication/example/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://surginsy.top/publication/example/</guid>
-      <description>&lt;div class=&#34;alert alert-warning&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
