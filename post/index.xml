@@ -13,6 +13,108 @@
     </image>
     
     <item>
+      <title>2021 10 09V2board搭建的尝试</title>
+      <link>https://surginsy.top/post/2021-10-09v2board%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%90%8E%E7%AB%AFxrayr%E7%9A%84%E5%B0%9D%E8%AF%95/</link>
+      <pubDate>Sat, 09 Oct 2021 22:22:18 +0800</pubDate>
+      <guid>https://surginsy.top/post/2021-10-09v2board%E6%90%AD%E5%BB%BA%E5%8F%8A%E5%90%8E%E7%AB%AFxrayr%E7%9A%84%E5%B0%9D%E8%AF%95/</guid>
+      <description>&lt;p&gt;对于，小白自建结点，结点的设置经常改变，对于结点的分享尤其多个人的分享，需要一个方便可行的方法
+所以，我采用机场的面板，通过相对固定的分享链接，使分享及调整结点简单化。本文主要采用v2board面板作为前端，对接xrayr作为后端对接。&lt;/p&gt;
+&lt;h3 id=&#34;mark安装宝塔aapanalmark&#34;&gt;&lt;mark&gt;安装宝塔aapanal&lt;mark&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;markaapanal的手动部署mark&#34;&gt;&lt;mark&gt;aapanal的手动部署&lt;mark&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;mark后端的xrayr的对接mark&#34;&gt;&lt;del&gt;&lt;mark&gt;后端的xrayr的对接&lt;mark&gt;&lt;/del&gt;&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;mark安装宝塔aapanalmark-1&#34;&gt;&lt;mark&gt;安装宝塔aapanal&lt;mark&gt;&lt;/h3&gt;
+&lt;p&gt;最低配置要求为1Core/512M RAM
+php&amp;gt;=7.3，nginx&amp;gt;=1.17，mysql	5.x，redis&lt;/p&gt;
+&lt;h4 id=&#34;ubuntudeepin安装脚本&#34;&gt;Ubuntu/Deepin安装脚本&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;mark管理宝塔aapanalmark&#34;&gt;&lt;mark&gt;管理宝塔aapanal&lt;mark&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;宝塔工具箱包含下列绝大部分功能-直接ssh中执行bt命令-仅限6x以上版本面板&#34;&gt;宝塔工具箱(包含下列绝大部分功能 直接ssh中执行bt命令 仅限6.x以上版本面板)&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;bt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;停止&#34;&gt;停止&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;/etc/init.d/bt stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;启动&#34;&gt;启动&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;/etc/init.d/bt start/restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;卸载&#34;&gt;卸载&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;/etc/init.d/bt stop &amp;amp;&amp;amp; chkconfig --del bt &amp;amp;&amp;amp; rm -f /etc/init.d/bt &amp;amp;&amp;amp; rm -rf /www/server/panel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bt.cn/btcode.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;详细操作可见https://www.bt.cn/btcode.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;选择使用LNMP的环境安装方式勾选如下信息&lt;/p&gt;
+&lt;p&gt;☑️ Nginx 1.17
+☑️ MySQL 5.6
+☑️ PHP 7.3&lt;/p&gt;
+&lt;p&gt;选择 Fast 快速编译后进行安装。&lt;/p&gt;
+&lt;h4 id=&#34;安装redisfileinfo&#34;&gt;安装Redis、fileinfo&lt;/h4&gt;
+&lt;p&gt;aaPanel 面板 &amp;gt; App Store &amp;gt; 找到PHP 7.3点击Setting &amp;gt; Install extentions &amp;gt; redis,fileinfo 进行安装&lt;/p&gt;
+&lt;h4 id=&#34;解除被禁止的函数&#34;&gt;解除被禁止的函数&lt;/h4&gt;
+&lt;p&gt;aaPanel 面板 &amp;gt; App Store &amp;gt; 找到PHP 7.3点击Setting &amp;gt; Disabled functions 将 putenv proc_open pcntl_alarm pcntl_signal 从列表中删除。&lt;/p&gt;
+&lt;h4 id=&#34;添加站点&#34;&gt;添加站点&lt;/h4&gt;
+&lt;p&gt;aaPanel 面板 &amp;gt; Website &amp;gt; Add site。&lt;/p&gt;
+&lt;p&gt;在 Domain 填入你指向服务器的域名
+在 Database 选择MySQL
+在 PHP Verison 选择PHP-73&lt;/p&gt;
+&lt;h4 id=&#34;安装v2board&#34;&gt;安装V2Board&lt;/h4&gt;
+&lt;p&gt;通过SSH登录到服务器后访问站点路径如：/www/wwwroot/你的站点域名。&lt;/p&gt;
+&lt;p&gt;以下命令都需要在站点目录进行执行。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 删除目录下文件
+chattr -i .user.ini
+rm -rf .htaccess 404.html index.html .user.ini
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;执行命令从-github-克隆到当前目录&#34;&gt;执行命令从 Github 克隆到当前目录。&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/v2board/v2board.git ./
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;执行命令安装依赖包以及v2board&#34;&gt;执行命令安装依赖包以及V2board&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;sh init.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;根据提示完成安装&lt;/p&gt;
+&lt;h4 id=&#34;配置站点目录及伪静态&#34;&gt;配置站点目录及伪静态&lt;/h4&gt;
+&lt;p&gt;添加完成后编辑添加的站点 &amp;gt; Site directory &amp;gt; Running directory 选择 /public 保存。&lt;/p&gt;
+&lt;p&gt;添加完成后编辑添加的站点 &amp;gt; URL rewrite 填入伪静态信息。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;location /downloads {
+}
+
+location / {  
+    try_files $uri $uri/ /index.php$is_args$query_string;  
+}
+
+location ~ .*\.(js|css)?$
+{
+    expires      1h;
+    error_log off;
+    access_log /dev/null;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;配置定时任务&#34;&gt;配置定时任务&lt;/h4&gt;
+&lt;p&gt;aaPanel 面板 &amp;gt; Cron。&lt;/p&gt;
+&lt;p&gt;在 Type of Task 选择 Shell Script
+在 Name of Task 填写 v2board
+在 Period 选择 N Minutes 1 Minute
+在 Script content 填写 php /www/wwwroot/路径/artisan schedule:run&lt;/p&gt;
+&lt;p&gt;根据上述信息添加每1分钟执行一次的定时任务。&lt;/p&gt;
+&lt;h4 id=&#34;启动队列服务&#34;&gt;启动队列服务&lt;/h4&gt;
+&lt;p&gt;V2board的邮件系统强依赖队列服务，你想要使用邮件验证及群发邮件必须启动队列服务。下面以aaPanel中nodejs的PM2服务来守护队列服务作为演示。&lt;/p&gt;
+&lt;p&gt;aaPanel 面板 &amp;gt; App Store &amp;gt; Deployment&lt;/p&gt;
+&lt;p&gt;找到PM2 Manager 4.2.2进行安装，安装完成后按照如下填写&lt;/p&gt;
+&lt;p&gt;在 Project root directory 选择站点目录
+在 Startup file name 填写 pm2.yaml
+在 project name 填写 v2board&lt;/p&gt;
+&lt;p&gt;填写后点击Add添加即可运行。当然你也可以使用supervisor进行守护。&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    aaPanel在安装PM2的时候可能会造成问题无法安装，你可以手动进行PM2安装。如何安装可以参考Google
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;mark常见问题mark&#34;&gt;&lt;mark&gt;常见问题&lt;mark&gt;&lt;/h3&gt;
+&lt;p&gt;Q：500错误
+A：检查站点根目录权限，递归755，保证目录有可写文件的权限，也有可能是Redis扩展没有安装或者Redis没有按照造成的。你可以通过查看storage/logs下的日志来排查错误或者开启debug模式。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2021 08 22在xray使用cloudflare中转流量解决节点去回程绕道</title>
       <link>https://surginsy.top/post/2021-08-22%E5%9C%A8xray%E4%BD%BF%E7%94%A8cloudflare%E4%B8%AD%E8%BD%AC%E6%B5%81%E9%87%8F%E8%A7%A3%E5%86%B3%E8%8A%82%E7%82%B9%E5%8E%BB%E5%9B%9E%E7%A8%8B%E7%BB%95%E9%81%93/</link>
       <pubDate>Sun, 22 Aug 2021 22:18:55 +0800</pubDate>
