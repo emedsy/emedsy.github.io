@@ -7,7 +7,7 @@
     <description>bushqin的博客</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_3.png</url>
       <title>bushqin的博客</title>
       <link>https://surginsy.top/</link>
     </image>
@@ -29,6 +29,86 @@
 &lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Further event details, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;page elements&lt;/a&gt; such as image galleries, can be added to the body of this page.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2021 10 10v2board免费后端xrayr的搭建</title>
+      <link>https://surginsy.top/post/2021-10-10v2board%E5%85%8D%E8%B4%B9%E5%90%8E%E7%AB%AFxrayr%E7%9A%84%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Sun, 10 Oct 2021 10:10:18 +0800</pubDate>
+      <guid>https://surginsy.top/post/2021-10-10v2board%E5%85%8D%E8%B4%B9%E5%90%8E%E7%AB%AFxrayr%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
+      <description>&lt;h4 id=&#34;mark项目地址-httpsgithubcomxrayr-projectmark&#34;&gt;&lt;mark&gt;项目地址: &lt;a href=&#34;https://github.com/XrayR-project&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/XrayR-project&lt;/a&gt;&lt;mark&gt;&lt;/h4&gt;
+&lt;p&gt;现在下载解压xrayr后端：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir /opt/xrayr &amp;amp;&amp;amp; cd /opt/xrayr
+wget https://github.com/XrayR-project/XrayR/releases/download/v0.7.2/XrayR-linux-64.zip
+wget https://github.com/XrayR-project/XrayR/releases/download/v0.7.2/XrayR-freebsd-arm64-v8a.zip
+
+ unzip XrayR-linux-64.zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编辑xrayr配置文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nano config.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;改为如下配置，需要改动的重要部分都写了注释：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Log:
+  Level: debug
+  AccessPath: ./access.log
+  ErrorPath: ./error.log
+DnsConfigPath: ./dns.json
+Nodes:
+  -
+    PanelType: &amp;quot;V2board&amp;quot; // 面板类型
+    ApiConfig:
+      ApiHost: &amp;quot;https://v2board.ohshit.club/&amp;quot; // v2board面板的地址，域名结尾一定要加/
+      ApiKey: &amp;quot;imlalaimlalaimlala&amp;quot; // v2board面板内配置的通讯密钥
+      NodeID: 1 // v2board面板内对应节点的id
+      NodeType: V2ray // 节点类型
+      Timeout: 30
+      EnableVless: false
+      EnableXTLS: false
+    ControllerConfig:
+      ListenIP: 0.0.0.0
+      UpdatePeriodic: 60
+      EnableDNS: false
+      CertConfig:
+        CertMode: dns
+        CertDomain: &amp;quot;node1.ohshit.club&amp;quot; // 节点域名
+        Provider: cloudflare
+        Email: example@lala.im // 你的邮箱
+        DNSEnv:
+          CF_DNS_API_TOKEN: cwPZEBAvIXUcxCdy4v2ib5j8uK-KwnRMDuNPxE-n // 你之前申请的cloudflare域名api
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;新建supervisor配置文件用于守护xrayr：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt install supervisor
+nano /etc/supervisor/conf.d/xrayr.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;写入如下配置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[program:xrayr]
+directory=/opt/xrayr
+command=/opt/xrayr/XrayR -config
+config.yml
+autostart=true
+autorestart=true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;启动xrayr：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;supervisorctl update
+supervisorctl status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;至此所有配置就全部完成了。如果部署遇到了问题，下面的这些日志可能会有帮助：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/var/www/v2board/storage/logs/laravel-xxxx-xx-xx.log
+/var/www/v2board/storage/logs/queue.log
+/opt/xrayr/access.log
+/opt/xrayr/error.log
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将程序写入守护进程之前，可以使用命令调试，直接读取回报结果&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root@1977:/opt/xrayr# ./XrayR -config config.yml
+XrayR 0.7.2 (A Xray backend that supports many panels)
+2021/10/10 02:32:43 Start the panel..
+2021/10/10 02:32:43 Xray Core Version: 1.4.5
+2021/10/10 02:32:45 Added 11 new users
+2021/10/10 02:32:46 Start monitor node status
+2021/10/10 02:32:47 0 user deleted, 0 user added
+2021/10/10 02:32:47 Start report node status
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -841,7 +921,7 @@ hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，�
 &lt;h3 id=&#34;academic-安装--更新&#34;&gt;Academic 安装 / 更新&lt;/h3&gt;
 &lt;p&gt;Academic 是一个 Hugo 主题，从名字就可以知道这个主题比较学院派，适合科研 / 学术人员发布个人信息 / 介绍科研项目，当然，拿来做个人博客也是没问题的&lt;/p&gt;
 &lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
-&lt;p&gt;通过 git 安装的话，首先建议你在 GitHub 上 fork 成你自己的项目，默认的话，通过 git clone &lt;a href=&#34;https://github.com/your_repo/academic-kickstart.git&#34;&gt;https://github.com/your_repo/academic-kickstart.git&lt;/a&gt; My_Website 将代码克隆到本地文件夹 My_Website&lt;/p&gt;
+&lt;p&gt;通过 git 安装的话，首先建议你在 GitHub 上 fork 成你自己的项目，默认的话，通过 git clone &lt;a href=&#34;https://github.com/your_repo/academic-kickstart.git&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/your_repo/academic-kickstart.git&lt;/a&gt; My_Website 将代码克隆到本地文件夹 My_Website&lt;/p&gt;
 &lt;p&gt;进入文件夹，初始化项目：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git submodule update --init --recursive
 &lt;/code&gt;&lt;/pre&gt;
@@ -863,7 +943,7 @@ hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，�
 &lt;p&gt;在 GitHub 上创建两个项目，一个是 fork 的 academic-kickstart，也就是你前面 clone 到本地的 My_Website，另一个即是以你用户名 / 组织名开头、以 .github.io 结尾的 GitHub page 项目。&lt;/p&gt;
 &lt;p&gt;在 My_Website 目录下执行 git submodule update &amp;ndash;init &amp;ndash;recursive 将子模块更新到最新状态；&lt;/p&gt;
 &lt;p&gt;将 config.toml 中的 baseurl 设置为你的 GitHub page 地址；&lt;/p&gt;
-&lt;p&gt;(实质) 删除 public 文件夹 (如果有的话)，将 GitHub page 项目添加为子模块：git submodule add -f -b master &lt;a href=&#34;https://github.com/&#34;&gt;https://github.com/&lt;/a&gt;&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public;&lt;/p&gt;
+&lt;p&gt;(实质) 删除 public 文件夹 (如果有的话)，将 GitHub page 项目添加为子模块：git submodule add -f -b master &lt;a href=&#34;https://github.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/&lt;/a&gt;&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public;&lt;/p&gt;
 &lt;p&gt;这时候你的 My_Website 项目实际上有两个子模块：作为主题依赖的 themes/academic 和作为网站的 &lt;USERNAME&gt;.github.io；&lt;/p&gt;
 &lt;p&gt;有意思的是一般是子模块 themes/academic 更新了之后，你更新主项目 My_Website 的依赖；&lt;/p&gt;
 &lt;p&gt;而你更新主项目 My_Website 的文章之后，再会手动的更新子模块 &lt;USERNAME&gt;.github.io，刚好反过来。&lt;/p&gt;
@@ -1041,7 +1121,7 @@ curl -fsSL git.io/speedtest-cli.sh | sudo bash
 &lt;p&gt;我搭建的目的是在墙内播放谷歌gdrive的片源，cpu能硬解4k，机器选择了hetzner的1275v5，拍卖获得，核显是p530，基本上能硬解播放1080p和4k，hevc格式，cpu占用单个用户播放，cpu占用不会超过100%，这样，减轻了服务端解码的压力。只要客户端建立合适的fd线路，基本流畅播放。&lt;/p&gt;
 &lt;p&gt;操作系统我选择的debian 10.3，hetzner提供的，64g内存，480g*2ssd硬盘，性能有点过剩。但是没有太合适的了。&lt;/p&gt;
 &lt;h3 id=&#34;2安装emby&#34;&gt;2，安装emby&lt;/h3&gt;
-&lt;p&gt;访问 &lt;a href=&#34;https://emby.media/linux-server.html&#34;&gt;https://emby.media/linux-server.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;访问 &lt;a href=&#34;https://emby.media/linux-server.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://emby.media/linux-server.html&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.5.2.0/emby-server-deb_4.5.2.0_amd64.deb
 dpkg -i emby-server-deb_4.5.2.0_amd64.deb
 &lt;/code&gt;&lt;/pre&gt;
@@ -1685,10 +1765,10 @@ root_folder_id = root
 &lt;h3 id=&#34;fclone第四代的安装使用&#34;&gt;fclone(第四代)的安装使用&lt;/h3&gt;
 &lt;p&gt;项目地址：&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone&#34;&gt;https://github.com/mawaya/rclone&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mawaya/rclone&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;下载地址：&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone/releases&#34;&gt;https://github.com/mawaya/rclone/releases&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mawaya/rclone/releases&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装使用方法：&lt;/p&gt;
 &lt;p&gt;以0.3.1为例&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/mawaya/rclone/releases/tag/fclone-v0.3.1
@@ -2718,7 +2798,7 @@ g）。手术前下午和晚上约10个小时，应以三剂口服方案。与�
 在将肿瘤摘除导管系统的患者进行摘除术之前，术前放置胰导管支架可以帮助外科医生避免导管损伤，并在发生严重导管破坏时对其进行识别。去核技术在其他地方有描述。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;姑息手术&#34;&gt;姑息手术&lt;/h3&gt;
-&lt;p&gt;如果在分期腹腔镜检查过程中或尝试进行胰十二指肠切除术期间发现患者患有无法切除的疾病，并且不建议降低阶段性的新辅助治疗（例如，肝或腹膜转移，非常广泛的局部疾病和完全的大血管闭塞等），可以进行外科胆道和胃旁路手术。 
+&lt;p&gt;如果在分期腹腔镜检查过程中或尝试进行胰十二指肠切除术期间发现患者患有无法切除的疾病，并且不建议降低阶段性的新辅助治疗（例如，肝或腹膜转移，非常广泛的局部疾病和完全的大血管闭塞等），可以进行外科胆道和胃旁路手术。
 对于大多数可能存活超过三个月的患者，也应进行预防性胃前空肠吻合术。它不会增加手术的发病率。
 胆道搭桥术（胆囊或胆总管空肠吻合术）可有效缓解胆道梗阻并消除后续胆道支架的需要。如果将胆囊用于减压，则外科医生应确定胆囊管是开放的，并且在其生长时不太可能被肿瘤阻塞。
 另外，在经验丰富的中心，内镜下胆道阻塞的缓解是另一种侵入性较小但同样有效的选择。内镜治疗恶性胰胆管阻塞的细节在其他地方讨论。&lt;/p&gt;

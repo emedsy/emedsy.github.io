@@ -7,7 +7,7 @@
     <description>gdrive</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_3.png</url>
       <title>gdrive</title>
       <link>https://surginsy.top/category/gdrive/</link>
     </image>
@@ -109,10 +109,10 @@ root_folder_id = root
 &lt;h3 id=&#34;fclone第四代的安装使用&#34;&gt;fclone(第四代)的安装使用&lt;/h3&gt;
 &lt;p&gt;项目地址：&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone&#34;&gt;https://github.com/mawaya/rclone&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mawaya/rclone&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;下载地址：&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone/releases&#34;&gt;https://github.com/mawaya/rclone/releases&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mawaya/rclone/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/mawaya/rclone/releases&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装使用方法：&lt;/p&gt;
 &lt;p&gt;以0.3.1为例&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/mawaya/rclone/releases/tag/fclone-v0.3.1

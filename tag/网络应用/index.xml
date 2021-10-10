@@ -7,7 +7,7 @@
     <description>网络应用</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>{2021}bushqin</copyright><lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_2.png</url>
+      <url>https://surginsy.top/media/icon_hucefaac8707ad58af9c40b1e071323765_52502_512x512_fill_lanczos_center_3.png</url>
       <title>网络应用</title>
       <link>https://surginsy.top/tag/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/</link>
     </image>
@@ -23,7 +23,7 @@
 &lt;p&gt;我搭建的目的是在墙内播放谷歌gdrive的片源，cpu能硬解4k，机器选择了hetzner的1275v5，拍卖获得，核显是p530，基本上能硬解播放1080p和4k，hevc格式，cpu占用单个用户播放，cpu占用不会超过100%，这样，减轻了服务端解码的压力。只要客户端建立合适的fd线路，基本流畅播放。&lt;/p&gt;
 &lt;p&gt;操作系统我选择的debian 10.3，hetzner提供的，64g内存，480g*2ssd硬盘，性能有点过剩。但是没有太合适的了。&lt;/p&gt;
 &lt;h3 id=&#34;2安装emby&#34;&gt;2，安装emby&lt;/h3&gt;
-&lt;p&gt;访问 &lt;a href=&#34;https://emby.media/linux-server.html&#34;&gt;https://emby.media/linux-server.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;访问 &lt;a href=&#34;https://emby.media/linux-server.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://emby.media/linux-server.html&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.5.2.0/emby-server-deb_4.5.2.0_amd64.deb
 dpkg -i emby-server-deb_4.5.2.0_amd64.deb
 &lt;/code&gt;&lt;/pre&gt;
